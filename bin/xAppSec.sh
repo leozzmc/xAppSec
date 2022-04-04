@@ -40,8 +40,23 @@ curl -X GET http://localhost:8080/api/charts | jq .
 
 
 #### 4. Call the Static Analysis Function
+echo "🧫   Perform static analysis to the xApp -------------------"
+sleep 2
+
+######  4.1 Helm Charts Analysis
+
+#  Note
+#  dms_cli install_values_yaml hwxapp 1.0.0 ricxapp --output_path=.
+#  Q1: How to get the xApp name and version number?
+
+######  4.2 Image Regsitry Check
+
+######  4.3 Image Vulnerabities Check
+
 
 #### 5. dms_cli tool install the xApp
+
+
 
 #### 6. Continuously check the deployment of xApp
 
