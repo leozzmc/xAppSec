@@ -8,5 +8,10 @@ To building the command tool to perform the security check to xApp in static and
 
 
 ## Functionality
-### Static Analysis
-### Dynamic Analysis
+
+![CLI Tool](https://user-images.githubusercontent.com/30616512/161489153-635c418e-3c3c-47d9-bd4f-42ed6a79a300.png)
+
+### 🧪Static Analysis
+To perform security check targeting xApp helm charts, xApp image registry and image vulnerabilities.
+### 🧪Dynamic Analysis
+
