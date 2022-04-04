@@ -4,7 +4,7 @@
 
 
 
-To building the command tool to perform the security analysis to xApp in both static and dynamic ways.
+Building the command tool to perform the security analysis to xApp in both static and dynamic ways.
 
 
 ## Functionality
