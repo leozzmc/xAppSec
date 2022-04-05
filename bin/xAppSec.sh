@@ -48,8 +48,33 @@ sleep 2
 #  Note
 #  dms_cli install_values_yaml hwxapp 1.0.0 ricxapp --output_path=.
 #  Q1: How to get the xApp name and version number?
+#  A1: Use " cat config-file.json | jq -c '.version' " and " cat config-file.json | jq -c '.xapp_name' "
+
+XAPP_NAME=$(cat ${CONFIG_JSON} | jq -c '.xapp_name')
+XAPP_VERSION=$(cat ${CONFIG_JSON} | jq -c '.version')
+
+dms_cli install_values_yaml ${XAPP_NAME} ${XAPP_VERSION} ricxapp  --output_path=.
+
 
 ######  4.2 Image Regsitry Check
+
+declare -a REGISTRY=()
+
+CONTAINER_NUM=$(cat $TEST_CONFGI_JSON | jq -c ".containers" | jq length)
+
+
+INDEX=0
+while [$INDEX -lt  $CONTAINER_NUM]
+do
+    REGISTRY+=($(cat $CONFIG_JSON | jq -c  '.containers[\$\{INDEX\}].image.registry'))
+    (( INDEX++ ))
+done
+
+
+
+
+
+
 
 ######  4.3 Image Vulnerabities Check
 
