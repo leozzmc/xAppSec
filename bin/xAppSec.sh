@@ -58,17 +58,21 @@ dms_cli install_values_yaml ${XAPP_NAME} ${XAPP_VERSION} ricxapp  --output_path=
 
 ######  4.2 Image Regsitry Check
 
+CONTAINER_NUM=$(cat $CONFIG_JSON | jq -c ".containers" | jq length)
 declare -a REGISTRY=()
 
-CONTAINER_NUM=$(cat $TEST_CONFGI_JSON | jq -c ".containers" | jq length)
-
-
+# Store the container registrys to array
 INDEX=0
-while [$INDEX -lt  $CONTAINER_NUM]
+while [ $INDEX -lt  $CONTAINER_NUM ]
 do
-    REGISTRY+=($(cat $CONFIG_JSON | jq -c  '.containers[\$\{INDEX\}].image.registry'))
-    (( INDEX++ ))
+	REGISTRY+=($(cat $CONFIG_JSON | jq -c ".containers[$INDEX].image.registry"))
+	echo "[$INDEX] | Value: ${REGISTRY[$INDEX]}"
+	(( INDEX++ ))
 done
+
+
+# Compare with whitelist
+declare -a White
 
 
 
