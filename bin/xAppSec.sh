@@ -71,8 +71,21 @@ do
 done
 
 
+echo "✅ Complete stroing the container registries to array"
+
+echo "📜 Comparing the Registry List with Whitlist...."
+
+### COMPARASION=('{ echo "${REGISTRY[*]}"; echo "${WHITELIST[*]}"; } | sort | uniq -d ') #顯示重複值
+### COMPARASION=('{ echo "${REGISTRY[*]}"; echo "${WHITELIST[*]}"; } | sort | uniq -u ') #顯示非重複值
+### echo "${COMPARASION[*]}
+
+
+
+
 # Compare with whitelist
-declare -a White
+#python3 ~/xAppSec/script/ImageRegistryCheck.py  [parameter1: CONFIG_JSON] [parameter2: SCHEMA_JSON]
+
+
 
 
 
