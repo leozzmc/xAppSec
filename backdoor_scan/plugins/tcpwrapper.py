@@ -7,7 +7,7 @@ import re
 @register.register("tcpwrapper")
 class tcpwrapper:
     """
-    tcpwrapper 后门检测插件
+    tcpwrapper backdoor testing plugin
     """
     wrapper_config_file_list = ['/etc/hosts.allow', '/etc/hosts.deny']
 

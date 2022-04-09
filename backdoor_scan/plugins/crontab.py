@@ -9,7 +9,7 @@ import os
 @register.register("crontab")
 class crontab:
     """
-    crontab 后门检测插件
+    crontab backdoor testing plugin
     """
     cron_list = ["/etc/crontab", "/etc/cron.hourly", "/etc/cron.daily" ,"/etc/cron.weekly", "/etc/cron.monthly", "/etc/cron.d"]
     environment_regex = '''[a-zA-Z90-9]+\s*=\s*[^\s]+$'''

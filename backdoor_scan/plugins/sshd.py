@@ -7,7 +7,7 @@ import os
 @register.register("sshd")
 class sshd():
     """
-    sshd 软连接后门检测插件，支持检测常规软连接后门
+    sshd symbolic link backdoor testing plugin
     """
     rootok_list = ("su", "chsh", "chfn", "runuser")
 

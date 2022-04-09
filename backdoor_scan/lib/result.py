@@ -8,9 +8,9 @@ class Result:
     def __str__(self):
         str = ""
         str = str + "+----------------------------------------------------------------------------------------------+\n"
-        str = str + "| ImageName: " + self.image_ref + "\n"
-        str = str + "| Filepath: " + self.filepath  + "\n"
-        str = str + "| Description: " + self.description + "\n"
+        str = str + "| 📑ImageName: " + self.image_ref + "\n"
+        str = str + "| 📑Filepath: " + self.filepath  + "\n"
+        str = str + "| 📑Description: " + self.description + "\n"
         str = str + "+----------------------------------------------------------------------------------------------+\n"
         return str
 

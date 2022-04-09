@@ -9,7 +9,7 @@ import re
 @register.register("bashrc")
 class bashrc:
     """
-    bashrc 后门检测插件
+    bashrc backdoor testing plugin
     """
     backdoor_regex_list = [
         r'''alias\s+ssh=[\'\"]{0,1}strace''',

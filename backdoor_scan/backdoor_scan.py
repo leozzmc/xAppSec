@@ -10,10 +10,6 @@ from veinmind import *
 from plugins import *
 from report import *
 
-sys.path.append(os.path.join(os.path.dirname(__file__), "../veinmind-common/python/service"))
-sys.path.append(os.path.join(os.path.dirname(__file__), "./veinmind-common/python/service"))
-
-
 results = []
 start = 0
 image_ids = []
@@ -28,8 +24,8 @@ def cli(format, output):
 
 
 @cli.image_command()
-def scan_images(image):
-    """scan image backdoor"""
+def xApp_scan_images(image):
+    """scan image backdoor within xApp descriptor files"""
     global image_ids
     image_ids.append(image.id())
     if len(image.reporefs()) > 0:
@@ -73,5 +69,4 @@ def callback(result, format, output):
 
 
 if __name__ == '__main__':
-    cli.add_info_command(manifest=command.Manifest(name="xAppSec-Backdoor", author="NTUST-PRLAB", description="xAppSec-Backdoor can scan xApp image backdoor file"))
     cli()
