@@ -22,6 +22,28 @@ def cli(format, output):
     start = timep.time()
     pass
 
+## Origin 'Register' Class
+plugin_dict = {}
+plugin_name = []
+
+def register(cls, plugin_name):
+    def wrapper(plugin):
+        cls.plugin_dict[plugin_name] = plugin
+        return plugin
+    return wrapper
+
+## Origin 'Report' function
+def report(evt, *args, **kwargs):
+    if service.is_hosted():
+        try:
+            evt_dict = json.loads(jsonpickle.encode(evt))
+            _report(evt_dict)
+        except RuntimeError as e:
+            log.error(e)
+    else:
+        log.warn(jsonpickle.encode(evt, indent=4))
+
+
 
 @cli.image_command()
 def xApp_scan_images(image):
@@ -72,23 +94,3 @@ if __name__ == '__main__':
     cli()
 
 
-## Origin 'Register' Class
-plugin_dict = {}
-plugin_name = []
-
-def register(cls, plugin_name):
-    def wrapper(plugin):
-        cls.plugin_dict[plugin_name] = plugin
-        return plugin
-    return wrapper
-
-## Origin 'Report' function
-def report(evt, *args, **kwargs):
-    if service.is_hosted():
-        try:
-            evt_dict = json.loads(jsonpickle.encode(evt))
-            _report(evt_dict)
-        except RuntimeError as e:
-            log.error(e)
-    else:
-        log.warn(jsonpickle.encode(evt, indent=4))
