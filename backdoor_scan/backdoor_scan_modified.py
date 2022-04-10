@@ -9,7 +9,7 @@ from lib import tools
 from veinmind import *
 from plugins import *
 from report import *
-from crontab import *
+from service import *
 
 
 
@@ -37,7 +37,7 @@ def cli(format, output):
 
 crontabObj = crontab.crontab()
 bashrcObj = bashrc.bashrc()
-serviceObj = service.service()
+serviceObj = service()
 sshdObj = sshd.sshd()
 tcpObj = tcpwrapper.tcpwrapper()
 plugin_list = [crontabObj,bashrcObj,serviceObj,sshdObj,tcpObj]
