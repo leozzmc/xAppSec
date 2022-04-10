@@ -1,1 +1,1 @@
-__all__ = ['crontab', 'sshd', 'bashrc', 'service', 'tcpwrapper','test']
+__all__ = ['crontab', 'sshd', 'bashrc', 'service', 'tcpwrapper']
