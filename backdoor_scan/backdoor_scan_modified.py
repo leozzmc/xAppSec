@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import register
+#import register
 import click
 import jsonpickle
 import time as timep
@@ -25,8 +25,14 @@ def cli(format, output):
     pass
 
 ## Origin 'Register' Class
-# plugin_dict = {}
-# plugin_name = []
+plugin_dict = {
+    'crontab' : <class 'plugins.crontab.crontab'>,
+    'sshd' : <class 'plugins.sshd.sshd'>,
+    'bashrc' : <class 'plugins.bashrc.bashrc'>,
+    'service' : <class 'plugins.service.service'>,
+    'tcpwrapper': <class 'plugins.tcpwrapper.tcpwrapper'>
+    }
+plugin_name = ['crontab','sshd','bashrc','service','tcpwrapper']
 
 # def register(cls, plugin_name):
 #     def wrapper(plugin):
@@ -58,7 +64,7 @@ def xApp_scan_images(image):
         log.info("start scan: " + image.id())
     
     # To iterate the items in the plugin dictionary with key: plugin_name and value: plugin
-    for plugin_name, plugin in register.register.plugin_dict.items():
+    for plugin_name, plugin in plugin_dict.items():
         print(plugin_name)
         print(plugin)
         p = plugin()
