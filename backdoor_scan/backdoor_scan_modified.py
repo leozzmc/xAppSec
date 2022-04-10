@@ -54,7 +54,7 @@ def xApp_scan_images(image):
         log.info("start scan: " + image.reporefs()[0])
     else:
         log.info("start scan: " + image.id())
-    for plugin_name, plugin in register.plugin_dict.items():
+    for plugin_name, plugin in plugin_dict.items():
         p = plugin()
         for r in p.detect(image):
             results.append(r)
