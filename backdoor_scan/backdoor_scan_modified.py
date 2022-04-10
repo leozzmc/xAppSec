@@ -33,16 +33,16 @@ def register(cls, plugin_name):
         return plugin
     return wrapper
 
-## Origin 'Report' function
-def report(evt, *args, **kwargs):
-    if service.is_hosted():
-        try:
-            evt_dict = json.loads(jsonpickle.encode(evt))
-            _report(evt_dict)
-        except RuntimeError as e:
-            log.error(e)
-    else:
-        log.warn(jsonpickle.encode(evt, indent=4))
+# ## Origin 'Report' function
+# def report(evt, *args, **kwargs):
+#     if service.is_hosted():
+#         try:
+#             evt_dict = json.loads(jsonpickle.encode(evt))
+#             _report(evt_dict)
+#         except RuntimeError as e:
+#             log.error(e)
+#     else:
+#         log.warn(jsonpickle.encode(evt, indent=4))
 
 
 
@@ -57,7 +57,7 @@ def xApp_scan_images(image):
         log.info("start scan: " + image.id())
     
     # To iterate the items in the plugin dictionary with key: plugin_name and value: plugin
-    for plugin_name, plugin in plugin_dict.items():
+    for plugin_name, plugin in register.register.plugin_dict.items():
         print(plugin_name)
         print(plugin)
         p = plugin()
