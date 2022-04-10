@@ -8,6 +8,7 @@ from lib import tools
 from veinmind import *
 from plugins import *
 from report import *
+from register import *
 
 
 
@@ -24,14 +25,14 @@ def cli(format, output):
     pass
 
 ## Origin 'Register' Class
-plugin_dict = {}
-plugin_name = []
+# plugin_dict = {}
+# plugin_name = []
 
-def register(cls, plugin_name):
-    def wrapper(plugin):
-        cls.plugin_dict[plugin_name] = plugin
-        return plugin
-    return wrapper
+# def register(cls, plugin_name):
+#     def wrapper(plugin):
+#         cls.plugin_dict[plugin_name] = plugin
+#         return plugin
+#     return wrapper
 
 # ## Origin 'Report' function
 # def report(evt, *args, **kwargs):
