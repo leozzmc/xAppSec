@@ -7,7 +7,7 @@ from lib import log
 from lib import tools
 from veinmind import *
 from plugins import *
-from report import *
+
 
 
 results = []
