@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import register
 import click
 import jsonpickle
 import time as timep
@@ -8,7 +9,6 @@ from lib import tools
 from veinmind import *
 from plugins import *
 from report import *
-from register import *
 
 
 
