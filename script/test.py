@@ -7,7 +7,7 @@ from veinmind import *
 image_ids = []
 
 @command.group()
-@click.option('--format', default="stdout", help="output format e.g. stdout/json")
+@command.option('--format', default="stdout", help="output format e.g. stdout/json")
 def cli(format):
     pass
 

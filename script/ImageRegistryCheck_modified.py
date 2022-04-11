@@ -6,14 +6,15 @@ from lib import tools
 from veinmind import *
 
 start = 0
-Registry_List = []
-Decision = []
+registry_List = []
+decision = []
 
 
 # The registry whitelist is only "nexus3.o-ran-sc.org:10002" for now.
-While_List = ["nexus3.o-ran-sc.org:10002"]
+while_List = ["nexus3.o-ran-sc.org:10002"]
 
 @command.group()
+@command.option('--format', default="stdout", help="output format e.g. stdout/json")
 def cli(format):
     global start
     start = timep.time()
@@ -37,38 +38,41 @@ def cli(format):
 @cli.image_command()
 def registry_check(image):
     """check the registry of image within xApp descriptor files"""
-    global Registry_List
-    global Decision
-    Registry_List.append(image.id())
+    global registry_List
+    global decision
+    registry_List.append(image.id())
     if len(image.reporefs()) > 0:
         log.info("start scan: " + image.reporefs()[0])
     else:
         log.info("start scan: " + image.id())
     
     # the registry in Registry_List contain 'True', it means the registry != "nexus3.o-ran-sc.org:10002"
-    for i in Registry_List:
+    for i in registry_List:
         if i != "nexus3.o-ran-sc.org:10002":
-            Decision.append(True)
+            decision.append(True)
         else:
-            Decision.append(False)
+            decision.append(False)
 
 
 
 
 @cli.resultcallback()
-def callback( ):
-    spend_time = timep.time() - start
-    print("# ================================================================================================= #")
-    tools.tab_print(" >> \033[48;5;234m\033[38;5;202mScan Image Total:\033[0;0m " + str(len(Registry_List)))
-    tools.tab_print(" >> \033[48;5;234m\033[38;5;202mSpend Time:\033[0;0m " + spend_time.__str__() + "s")
-    for r in range(0,len(Decision)):
-        if Decision[r] == 'True':
-            print("+---------------------------------------------------------------------------------------------------+")
-            tools.tab_print("ImageName: " + Registry_List[r] )
-            tools.tab_print("Descriptions: " + "the image registry of this image is invalid")
-    print("+---------------------------------------------------------------------------------------------------+")
-    print("# ================================================================================================= #")
-    pass
+def callback(result, format ):
+    if format == "stdout":
+        spend_time = timep.time() - start
+        print("# ================================================================================================= #")
+        tools.tab_print(" >> \033[48;5;234m\033[38;5;202mScan Image Total:\033[0;0m " + str(len(registry_List)))
+        tools.tab_print(" >> \033[48;5;234m\033[38;5;202mSpend Time:\033[0;0m " + spend_time.__str__() + "s")
+        for r in range(0,len(decision)):
+            if decision[r] == 'True':
+                print("+---------------------------------------------------------------------------------------------------+")
+                tools.tab_print("ImageName: " + registry_List[r] )
+                tools.tab_print("Descriptions: " + "the image registry of this image is invalid")
+        print("+---------------------------------------------------------------------------------------------------+")
+        print("# ================================================================================================= #")
+        pass
+    elif format == "json":
+        pass
 
 
 if __name__ == '__main__':
