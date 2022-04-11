@@ -4,7 +4,7 @@ import click
 import jsonpickle
 import time as timep
 import os, sys
-from lib import log
+from lib import logger
 from lib import tools
 from veinmind import *
 from plugins import *
