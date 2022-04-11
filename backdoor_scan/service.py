@@ -31,5 +31,5 @@ class service():
                     except FileNotFoundError:
                         continue
                     except BaseException as e:
-                        log.logger.error(e)
+                        logger.logger.error(e)
         return results

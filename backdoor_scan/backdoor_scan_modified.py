@@ -61,17 +61,6 @@ def test():
     for i in plugin_list:
         print(i)
 
-@cli.command()
-def test2(image):
-    """for testing the log.info"""
-    global image_ids
-    image_ids.append(image.id())
-    if len(image.reporefs()) > 0:
-        log.info("start scan: " + image.reporefs()[0])
-    else:
-        log.info("start scan: " + image.id())
-
-
 @cli.resultcallback()
 def callback(result, format, output):
     spend_time = timep.time() - start
