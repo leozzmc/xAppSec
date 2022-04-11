@@ -72,9 +72,9 @@ def callback(result, format, output):
         tools.tab_print("Backdoor Total: " + str(len(results)))
         for r in results:
             print("+---------------------------------------------------------------------------------------------------+")
-            tools.tab_print("\033[48;5;236m\033[38;5;231mImageName: " + r.image_ref)
-            tools.tab_print("\033[48;5;236m\033[38;5;231mBackdoor File Path: " + r.filepath)
-            tools.tab_print("\033[48;5;236m\033[38;5;231mDescription: " + r.description)
+            tools.tab_print("ImageName: " + r.image_ref)
+            tools.tab_print("Backdoor File Path: " + r.filepath)
+            tools.tab_print("Description: " + r.description)
         print("+---------------------------------------------------------------------------------------------------+")
         print("# ================================================================================================= #")
 
