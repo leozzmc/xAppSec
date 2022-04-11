@@ -1,5 +1,4 @@
 #from register import register
-from lib import logger
 from lib import result
 from lib import regex
 import re
@@ -62,7 +61,7 @@ class crontab:
             except FileNotFoundError:
                 continue
         return results
-
+    @classmethod
     def detect_crontab_content(self, cron_f):
         result_dict = {}
         for line in cron_f.readlines():
