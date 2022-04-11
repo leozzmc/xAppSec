@@ -86,3 +86,8 @@ if __name__ == '__main__':
     cli()
 
 
+"""
+Reference Websites:
+[1] https://stackabuse.com/how-to-print-colored-text-in-python/
+"""
+
