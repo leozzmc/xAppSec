@@ -1,10 +1,10 @@
-from register import register
+#from register import register
 from lib import log
 from lib import result
 from lib import regex
 import re
 
-@register.register("tcpwrapper")
+#@register.register("tcpwrapper")
 class tcpwrapper:
     """
     tcpwrapper backdoor testing plugin

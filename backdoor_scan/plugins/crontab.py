@@ -1,4 +1,4 @@
-from register import register
+#from register import register
 from lib import log
 from lib import result
 from lib import regex
@@ -7,7 +7,7 @@ from stat import *
 import os
 
 
-@register.register("crontab")
+#@register.register("crontab")
 class crontab:
     """
     crontab backdoor testing plugin

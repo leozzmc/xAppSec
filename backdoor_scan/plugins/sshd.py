@@ -1,10 +1,10 @@
-from register import register
+#from register import register
 from lib import log
 from stat import *
 from lib import result
 import os
 
-@register.register("sshd")
+#@register.register("sshd")
 class sshd():
     """
     sshd symbolic link backdoor testing plugin

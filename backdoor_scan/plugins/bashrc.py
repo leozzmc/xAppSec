@@ -1,4 +1,4 @@
-from register import register
+#from register import register
 from lib import log
 from lib import result
 from lib import regex
@@ -6,7 +6,7 @@ import os
 import re
 
 
-@register.register("bashrc")
+#@register.register("bashrc")
 class bashrc:
     """
     bashrc backdoor testing plugin
