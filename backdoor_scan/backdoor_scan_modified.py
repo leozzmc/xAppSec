@@ -3,8 +3,7 @@
 import click
 import jsonpickle
 import time as timep
-import os, sys
-from lib import logger
+import os
 from lib import tools
 from veinmind import *
 from plugins import *
@@ -68,9 +67,9 @@ def callback(result, format, output):
 
     if format == "stdout":
         print("# ================================================================================================= #")
-        tools.tab_print("Scan Image Total: " + str(len(image_ids)))
-        tools.tab_print("Spend Time: " + spend_time.__str__() + "s")
-        tools.tab_print("Backdoor Total: " + str(len(results)))
+        tools.tab_print("📟Scan Image Total: " + str(len(image_ids)))
+        tools.tab_print("⏲Spend Time: " + spend_time.__str__() + "s")
+        tools.tab_print("👁‍🗨Backdoor Total: " + str(len(results)))
         for r in results:
             print("+---------------------------------------------------------------------------------------------------+")
             tools.tab_print("ImageName: " + r.image_ref)

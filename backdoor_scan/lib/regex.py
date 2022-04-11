@@ -8,3 +8,13 @@ backdoor_regex_list = [
     r'''(sh|bash|dash|zsh)\b.*-c\b.*?\bcat\b.*?\|&?.*?\b(ba|da|z|k|c|a|tc|fi|sc)?sh\b.*?\|\s*(nc|ncat)\b''',
     r'''(sh|bash|dash|zsh)\b.*sh\s+(-i)?\s*>&?\s*/dev/(tcp|udp)/.*?/\d+\s+0>&\s*(1|2)''',
 ]
+
+'''
+Should expand theregex list
+need to add:
+- "perl type reverse shell payload"
+- "php type reverse shell payload"
+- "ruby type reverse shell payload"
+- "golang type reverse shell payload"
+- "awk type reverse shell payload"
+'''
