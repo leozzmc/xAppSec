@@ -2,13 +2,15 @@
 import click
 from veinmind import *
 
+
+
 image_ids = []
-@click.group()
-@click.option('--format', default="stdout", help="output format e.g. stdout/json")
-def cli(format):
+
+@command.group()
+def cli():
     pass
 
-@cli.command()
+@cli.image_command()
 def test(image):
     """Just a test function"""
     global image_ids
@@ -19,7 +21,7 @@ def test(image):
         log.info("start scan: " + image.id())
 
 @cli.resultcallback()
-def callback(format):
+def callback():
     pass
 
 if __name__ == '__main__':

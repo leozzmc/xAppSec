@@ -10,7 +10,7 @@ Registry_List = []
 # The registry whitelist is only "nexus3.o-ran-sc.org:10002" for now.
 While_List = ["nexus3.o-ran-sc.org:10002"]
 
-@click.group()
+@command.group()
 @click.option('--format', default="stdout", help="output format e.g. stdout/json")
 def cli(format ):
     pass
@@ -30,7 +30,7 @@ def cli(format ):
 #         if i != "nexus3.o-ran-sc.org:10002":
 #             print (f"\n❎ the image registry: \"{i}\" of xApp is invalid!")
 
-@cli.command
+@cli.image_command()
 def registry_check():
     pass
 
