@@ -67,9 +67,9 @@ def callback(result, format, output):
 
     if format == "stdout":
         print("# ================================================================================================= #")
-        tools.tab_print("Scan Image Total: " + str(len(image_ids)))
-        tools.tab_print("Spend Time: " + spend_time.__str__() + "s")
-        tools.tab_print("Backdoor Total: " + str(len(results)))
+        tools.tab_print("\033[48;5;237m\033[38;5;202mScan Image Total: \033[0;0m" + str(len(image_ids)))
+        tools.tab_print("\033[48;5;237m\033[38;5;202mSpend Time: \033[0;0m" + spend_time.__str__() + "s")
+        tools.tab_print("\033[48;5;237m\033[38;5;202mBackdoor Total: \033[0;0m" + str(len(results)))
         for r in results:
             print("+---------------------------------------------------------------------------------------------------+")
             tools.tab_print("ImageName: " + r.image_ref)
