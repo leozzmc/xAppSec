@@ -22,7 +22,8 @@ class crontab:
         # mrig
         r'''^([\w0-9]*mrig[\w0-9]*)\b'''
     ]
-
+    
+    @staticmethod
     def detect(self, image):
         results = []
         for cron in self.cron_list:

@@ -20,7 +20,8 @@ class bashrc:
         "/home",
         "/root"
     ]
-
+    
+    @staticmethod
     def detect(self, image):
         results = []
 
