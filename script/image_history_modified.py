@@ -14,7 +14,7 @@ instruct_set = (
 
 def load_rules():
     global rules
-    with open("~/xAppSec/script/rules.toml", encoding="utf8") as f:
+    with open("../rules.toml", encoding="utf8") as f:
         rules = toml.load(f)
 
 
