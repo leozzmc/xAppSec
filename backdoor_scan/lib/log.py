@@ -1,7 +1,7 @@
 import logging
 
 # logger
-formatter = logging.Formatter( '[%(levelname)s]  %(message)s')
+formatter = logging.Formatter( '%(name)s [%(levelname)s]  %(message)s')
 handler = logging.StreamHandler()
 handler.setFormatter(formatter)
 #logger = logging.getLogger("veinmind-sensitive")
