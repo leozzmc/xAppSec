@@ -45,6 +45,7 @@ def xApp_scan_images(image):
     
     for i in plugin_list:
         for r in i.detect(image):
+            print(r)
             results.append(r)
             file_stat = image.stat(r.filepath)
             detail = AlertDetail.backdoor(backdoor_detail=BackdoorDetail(r.description, FileDetail.from_stat(r.filepath, file_stat)))
