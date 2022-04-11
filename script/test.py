@@ -21,8 +21,8 @@ def test(image):
         log.info("start scan: " + image.id())
 
 @cli.resultcallback()
-def callback():
-    pass
+def callback(image_ids):
+    print(image_ids)
 
 if __name__ == '__main__':
     cli()
