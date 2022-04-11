@@ -14,7 +14,7 @@ decision = []
 while_List = ["nexus3.o-ran-sc.org:10002"]
 
 @command.group()
-@command.option('--format', default="stdout", help="output format e.g. stdout/json")
+@click.option('--format', default="stdout", help="output format e.g. stdout/json")
 def cli(format):
     global start
     start = timep.time()
