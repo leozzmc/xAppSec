@@ -9,8 +9,6 @@ from plugins import *
 from report import *
 from service import *
 
-
-
 results = []
 start = 0
 image_ids = []
