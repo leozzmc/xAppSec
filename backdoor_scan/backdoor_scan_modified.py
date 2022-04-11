@@ -67,14 +67,14 @@ def callback(result, format, output):
 
     if format == "stdout":
         print("# ================================================================================================= #")
-        tools.tab_print("📟Scan Image Total: " + str(len(image_ids)))
-        tools.tab_print("⏲Spend Time: " + spend_time.__str__() + "s")
-        tools.tab_print("👁‍🗨Backdoor Total: " + str(len(results)))
+        tools.tab_print("Scan Image Total: " + str(len(image_ids)))
+        tools.tab_print("Spend Time: " + spend_time.__str__() + "s")
+        tools.tab_print("Backdoor Total: " + str(len(results)))
         for r in results:
             print("+---------------------------------------------------------------------------------------------------+")
-            tools.tab_print("ImageName: " + r.image_ref)
-            tools.tab_print("Backdoor File Path: " + r.filepath)
-            tools.tab_print("Description: " + r.description)
+            tools.tab_print("\033[48;5;236m\033[38;5;231mImageName: " + r.image_ref)
+            tools.tab_print("\033[48;5;236m\033[38;5;231mBackdoor File Path: " + r.filepath)
+            tools.tab_print("\033[48;5;236m\033[38;5;231mDescription: " + r.description)
         print("+---------------------------------------------------------------------------------------------------+")
         print("# ================================================================================================= #")
 
@@ -82,7 +82,6 @@ def callback(result, format, output):
         fpath = os.path.join(output, "report.json")
         with open(fpath, mode="w") as f:
             f.write(jsonpickle.dumps(results))
-
 
 if __name__ == '__main__':
     cli()
