@@ -11,15 +11,15 @@ def cli(format):
 @cli.command()
 def test(image):
     """Just a test function"""
-    refs = image.reporefs()
-    if len(refs) > 0:
-        ref = refs[0]
+    global image_ids
+    image_ids.append(image.id())
+    if len(image.reporefs()) > 0:
+        log.info("start scan: " + image.reporefs()[0])
     else:
-        ref = image.id()
-    log.info("start scan: " + ref)
+        log.info("start scan: " + image.id())
 
 @cli.resultcallback()
-def callback():
+def callback(format):
     pass
 
 if __name__ == '__main__':
