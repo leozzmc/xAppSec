@@ -17,7 +17,8 @@ do
 done
 echo "📑 Comparing with whitelist ..."
 
-python3 /mnt/c/Users/Kevin/xAppSecProject/xAppSec/script/ImageRegistryCheck.py $TEST_CONFIG_JSON
+#python3 /mnt/c/Users/Kevin/xAppSecProject/xAppSec/script/ImageRegistryCheck.py $TEST_CONFIG_JSON
+/mnt/c/Users/Kevin/xAppSecProject/xAppSec/script/ImageRegistryCheck_modified.py ##registry_check $TEST_CONFIG_JSON
 
 
 

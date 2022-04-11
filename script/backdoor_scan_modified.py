@@ -54,7 +54,7 @@ def xApp_scan_images(image):
 
 @cli.command()
 def test():
-    """for testing the function call """
+    """for testing the function call"""
     for i in plugin_list:
         print(i)
 
