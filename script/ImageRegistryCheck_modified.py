@@ -58,6 +58,7 @@ def registry_check(image):
 
 @cli.resultcallback()
 def callback(result, format ):
+    InValid = False
     if format == "stdout":
         spend_time = timep.time() - start
         print("# ================================================================================================= #")
@@ -68,9 +69,10 @@ def callback(result, format ):
                 print("+---------------------------------------------------------------------------------------------------+")
                 tools.tab_print("ImageName: " + registry_List[r] )
                 tools.tab_print("Descriptions: " + "the image registry of this image is invalid")
-            else:
-                print("+---------------------------------------------------------------------------------------------------+")
-                tools.tab_print("\033[48;5;234m\033[38;5;20mResult: the image registry of this image is valid!\033[0;0m")
+                InValid = True
+        if InValid != True:
+            print("+---------------------------------------------------------------------------------------------------+")
+            tools.tab_print("\033[48;5;234m\033[38;5;20mResult: the image registry of this image is valid!\033[0;0m")
         print("+---------------------------------------------------------------------------------------------------+")
         print("# ================================================================================================= #")
         pass
