@@ -17,24 +17,6 @@ results = []
 start = 0
 image_ids = []
 
-@command.group()
-@click.option('--format', default="stdout", help="output format e.g. stdout/json")
-@click.option('--output', default='.', help="output path e.g. /tmp")
-def cli(format, output):
-    global start
-    start = timep.time()
-    pass
-
-## Origin 'Register' Class
-# plugin_dict = {
-#     'crontab' : <class 'plugins.crontab.crontab'>,
-#     'sshd' : <class 'plugins.sshd.sshd'>,
-#     'bashrc' : <class 'plugins.bashrc.bashrc'>,
-#     'service' : <class 'plugins.service.service'>,
-#     'tcpwrapper': <class 'plugins.tcpwrapper.tcpwrapper'>
-#     }
-# plugin_name = ['crontab','sshd','bashrc','service','tcpwrapper']
-
 crontabObj = crontab.crontab()
 bashrcObj = bashrc.bashrc()
 serviceObj = service()
@@ -42,32 +24,13 @@ sshdObj = sshd.sshd()
 tcpObj = tcpwrapper.tcpwrapper()
 plugin_list = [crontabObj,bashrcObj,serviceObj,sshdObj,tcpObj]
 
-
-# @cli.image_command()
-# def xApp_scan_images(image):
-#     """scan image backdoor within xApp descriptor files"""
-#     global image_ids
-#     image_ids.append(image.id())
-#     if len(image.reporefs()) > 0:
-#         log.info("start scan: " + image.reporefs()[0])
-#     else:
-#         log.info("start scan: " + image.id())
-    
-#     # To iterate the items in the plugin dictionary with key: plugin_name and value: plugin
-#     for plugin_name, plugin in plugin_dict.items():
-#         print(plugin_name)
-#         print(plugin)
-#         p = plugin()
-#         for r in p.detect(image):
-#             results.append(r)
-#             file_stat = image.stat(r.filepath)
-#             detail = AlertDetail.backdoor(backdoor_detail=BackdoorDetail(r.description, FileDetail.from_stat(r.filepath, file_stat)))
-#             report_event = ReportEvent(id=image.id(), level=Level.High.value,
-#                                        detect_type=DetectType.Image.value,
-#                                        event_type=EventType.Risk.value,
-#                                        alert_type=AlertType.Backdoor.value,
-#                                        alert_details=[detail])
-#             report(report_event)
+@command.group()
+@click.option('--format', default="stdout", help="output format e.g. stdout/json")
+@click.option('--output', default='.', help="output path e.g. /tmp")
+def cli(format, output):
+    global start
+    start = timep.time()
+    pass
 
 
 @cli.image_command()
