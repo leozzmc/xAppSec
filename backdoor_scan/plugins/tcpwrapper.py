@@ -1,5 +1,5 @@
 #from register import register
-from lib import log
+from lib import logger
 from lib import result
 from lib import regex
 import re
@@ -32,5 +32,5 @@ class tcpwrapper:
             except FileNotFoundError:
                 continue
             except BaseException as e:
-                log.logger.error(e)
+                logger.logger.error(e)
         return results

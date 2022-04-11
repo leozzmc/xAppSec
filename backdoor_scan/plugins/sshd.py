@@ -1,5 +1,5 @@
 #from register import register
-from lib import log
+from lib import logger
 from stat import *
 from lib import result
 import os
@@ -37,5 +37,5 @@ class sshd():
                 except FileNotFoundError:
                     continue
                 except BaseException as e:
-                    log.logger.error(e)
+                    logger.logger.error(e)
         return results
