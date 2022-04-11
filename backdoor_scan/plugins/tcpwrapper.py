@@ -1,10 +1,9 @@
-#from register import register
-from lib import logger
+from lib import log
 from lib import result
 from lib import regex
 import re
 
-#@register.register("tcpwrapper")
+
 class tcpwrapper:
     """
     tcpwrapper backdoor testing plugin
@@ -32,5 +31,5 @@ class tcpwrapper:
             except FileNotFoundError:
                 continue
             except BaseException as e:
-                logger.logger.error(e)
+                log.logger.error(e)
         return results

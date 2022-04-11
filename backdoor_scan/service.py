@@ -1,9 +1,7 @@
-from register import register
 from lib import *
 import os
 import re
 
-@register.register("service")
 class service():
     service_dir_list = ["/etc/systemd/system"]
 
