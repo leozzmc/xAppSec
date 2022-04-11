@@ -14,7 +14,6 @@ Decision = []
 While_List = ["nexus3.o-ran-sc.org:10002"]
 
 @command.group()
-@click.option('--format', default="stdout", help="output format e.g. stdout/json")
 def cli(format):
     global start
     start = timep.time()
@@ -57,23 +56,19 @@ def registry_check(image):
 
 
 @cli.resultcallback()
-def callback(format:str):
+def callback( ):
     spend_time = timep.time() - start
-
-    if format == "stdout":
-        print("# ================================================================================================= #")
-        tools.tab_print(" >> \033[48;5;234m\033[38;5;202mScan Image Total:\033[0;0m " + str(len(Registry_List)))
-        tools.tab_print(" >> \033[48;5;234m\033[38;5;202mSpend Time:\033[0;0m " + spend_time.__str__() + "s")
-        for r in range(0,len(Decision)):
-            if Decision[r] == 'True':
-                print("+---------------------------------------------------------------------------------------------------+")
-                tools.tab_print("ImageName: " + Registry_List[r] )
-                tools.tab_print("Descriptions: " + "the image registry of this image is invalid")
-        print("+---------------------------------------------------------------------------------------------------+")
-        print("# ================================================================================================= #")
-        pass
-    elif format == "json":
-        pass
+    print("# ================================================================================================= #")
+    tools.tab_print(" >> \033[48;5;234m\033[38;5;202mScan Image Total:\033[0;0m " + str(len(Registry_List)))
+    tools.tab_print(" >> \033[48;5;234m\033[38;5;202mSpend Time:\033[0;0m " + spend_time.__str__() + "s")
+    for r in range(0,len(Decision)):
+        if Decision[r] == 'True':
+            print("+---------------------------------------------------------------------------------------------------+")
+            tools.tab_print("ImageName: " + Registry_List[r] )
+            tools.tab_print("Descriptions: " + "the image registry of this image is invalid")
+    print("+---------------------------------------------------------------------------------------------------+")
+    print("# ================================================================================================= #")
+    pass
 
 
 if __name__ == '__main__':
