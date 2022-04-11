@@ -54,8 +54,6 @@ def registry_check(image):
             decision.append(False)
 
 
-
-
 @cli.resultcallback()
 def callback(result, format ):
     InValid = False
@@ -72,7 +70,7 @@ def callback(result, format ):
                 InValid = True
         if InValid != True:
             print("+---------------------------------------------------------------------------------------------------+")
-            tools.tab_print("\033[48;5;234m\033[38;5;45mResult: the image registry of this image is valid!\033[0;0m")
+            tools.tab_print("\033[48;5;234m\033[38;5;45mResult: the image registry of all xApp images are valid!\033[0;0m")
         print("+---------------------------------------------------------------------------------------------------+")
         print("# ================================================================================================= #")
         pass
