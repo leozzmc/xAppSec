@@ -57,7 +57,7 @@ def registry_check(image):
 
 
 @cli.resultcallback()
-def callback(Registry_List, format):
+def callback(format):
     spend_time = timep.time() - start
 
     if format == "stdout":
