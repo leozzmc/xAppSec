@@ -7,7 +7,8 @@ from veinmind import *
 image_ids = []
 
 @command.group()
-def cli():
+@click.option('--format', default="stdout", help="output format e.g. stdout/json")
+def cli(format):
     pass
 
 @cli.image_command()
@@ -21,8 +22,9 @@ def test(image):
         log.info("start scan: " + image.id())
 
 @cli.resultcallback()
-def callback(image_ids):
-    print(image_ids)
+def callback(image_ids,format):
+    if format=="stdout":
+        print(image_ids)
 
 if __name__ == '__main__':
     cli()
