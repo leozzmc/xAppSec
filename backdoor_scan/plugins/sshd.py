@@ -11,7 +11,7 @@ class sshd():
     """
     rootok_list = ("su", "chsh", "chfn", "runuser")
 
-    @staticmethod
+    @classmethod
     def detect(self, image):
         results = []
 

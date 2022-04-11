@@ -11,7 +11,7 @@ class tcpwrapper:
     """
     wrapper_config_file_list = ['/etc/hosts.allow', '/etc/hosts.deny']
 
-    @staticmethod
+    @classmethod
     def detect(self, image):
         results = []
         for config_filepath in self.wrapper_config_file_list:
