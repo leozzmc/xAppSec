@@ -74,13 +74,10 @@ if __name__ == '__main__':
     cli()
 
 
-"""
-It Should eventually write to a analysis report file.
-It cloud be JSON format.
-"""
+###  "Functionality" ###
+#🔹 It Should eventually write to a analysis report file. It cloud be JSON format.
+#🔹 Input specific registry name or scan through all image then comapre the registry name.
 
-#####  Should Write to Analysis Result File ! ##########
-#                                                      #
-#                                                      #
-#                                                      #
-########################################################
+###  "Integration" ###
+#🔹 The input shouldbe the image name
+#🔹 The xAppSec.sh can extract the image registry with the xApp descriptor file.
