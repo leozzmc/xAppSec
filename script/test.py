@@ -15,8 +15,8 @@ def test(image):
     """Just a test function"""
     global image_ids
     image_ids.append(image.id())
-    print(image.id())
-    print(image.repos())
+    print("[1] " + image.id())
+    print("[2] " + image.repos())
 
 @cli.resultcallback()
 def callback(result):
