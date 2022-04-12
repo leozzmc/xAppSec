@@ -69,11 +69,11 @@ def callback(result, format ):
         tools.tab_print(" >> \033[48;5;234m\033[38;5;202mScan Image Total:\033[0;0m " + str(len(registry_List)))
         tools.tab_print(" >> \033[48;5;234m\033[38;5;202mSpend Time:\033[0;0m " + spend_time.__str__() + "s")
         for r in range(0,len(decision)):
-            if decision[r] == 'True':
+            if decision[r] == True:
                 print("+---------------------------------------------------------------------------------------------------+")
-                tools.tab_print("ImageName: " + image_ids[r] )
+                tools.tab_print("RegistryName: " + str(registry_List[r]) )
                 tools.tab_print("Descriptions: " + "the image registry of this image is invalid")
-                InValid = True
+                #InValid = True
         #if InValid != True:
             #print("+---------------------------------------------------------------------------------------------------+")
             else:
