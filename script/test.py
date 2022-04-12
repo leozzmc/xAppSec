@@ -16,7 +16,7 @@ def test(image):
     global image_ids
     image_ids.append(image.id())
     print("[1] " + image.id())
-    print(image.repos())
+    print(image.reporefs())
 
 @cli.resultcallback()
 def callback(result):
