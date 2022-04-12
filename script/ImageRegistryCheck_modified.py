@@ -44,8 +44,6 @@ def registry_check(image):
 
 
 
-
-
 @cli.resultcallback()
 def callback(result, format ):
     #InValid = False
@@ -63,12 +61,8 @@ def callback(result, format ):
         #if InValid != True:
             #print("+---------------------------------------------------------------------------------------------------+")
             else:
-<<<<<<< HEAD
                 tools.tab_print("\033[48;5;234m\033[38;5;45mResult: the image registry of this image is valid!\033[0;0m")
-=======
-                pass
-                #tools.tab_print("\033[48;5;234m\033[38;5;45mResult: the image registry of this image is valid!\033[0;0m")
->>>>>>> eee30c1366aff340f1d20828c26648d1deb8f41c
+
         print("+---------------------------------------------------------------------------------------------------+")
         print("# ================================================================================================= #")
         pass
@@ -79,16 +73,14 @@ def callback(result, format ):
 if __name__ == '__main__':
     cli()
 
-<<<<<<< HEAD
+
 """
 It Should eventually write to a analysis report file.
 It cloud be JSON format.
 """
-=======
 
 #####  Should Write to Analysis Result File ! ##########
 #                                                      #
 #                                                      #
 #                                                      #
 ########################################################
->>>>>>> eee30c1366aff340f1d20828c26648d1deb8f41c
