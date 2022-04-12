@@ -6,6 +6,7 @@ from lib import tools
 from veinmind import *
 
 start = 0
+image_ids = []
 registry_List = []
 decision = []
 
@@ -38,9 +39,11 @@ def cli(format):
 @cli.image_command()
 def registry_check(image):
     """check the registry of image within xApp descriptor files"""
+    global image_ids
     global registry_List
     global decision
-    registry_List.append(image.id())
+    image_ids.append(image.id())
+    registry_List.append(image.repos())
     if len(image.reporefs()) > 0:
         log.info("start scan: " + image.reporefs()[0])
     else:
@@ -54,9 +57,12 @@ def registry_check(image):
             decision.append(False)
 
 
+
+
+
 @cli.resultcallback()
 def callback(result, format ):
-    InValid = False
+    #InValid = False
     if format == "stdout":
         spend_time = timep.time() - start
         print("# ================================================================================================= #")
@@ -65,12 +71,14 @@ def callback(result, format ):
         for r in range(0,len(decision)):
             if decision[r] == 'True':
                 print("+---------------------------------------------------------------------------------------------------+")
-                tools.tab_print("ImageName: " + registry_List[r] )
+                tools.tab_print("ImageName: " + image_ids[r] )
                 tools.tab_print("Descriptions: " + "the image registry of this image is invalid")
                 InValid = True
-        if InValid != True:
-            print("+---------------------------------------------------------------------------------------------------+")
-            tools.tab_print("\033[48;5;234m\033[38;5;45mResult: the image registry of all xApp images are valid!\033[0;0m")
+        #if InValid != True:
+            #print("+---------------------------------------------------------------------------------------------------+")
+            else:
+                pass
+                #tools.tab_print("\033[48;5;234m\033[38;5;45mResult: the image registry of this image is valid!\033[0;0m")
         print("+---------------------------------------------------------------------------------------------------+")
         print("# ================================================================================================= #")
         pass
