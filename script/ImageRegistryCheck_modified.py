@@ -33,8 +33,7 @@ def registry_check(image):
     if len(image.reporefs()) > 0:
         log.info("start scan: " + image.reporefs()[0])
     else:
-        log.info("start scan: " + image.id())
-    
+        log.info("start scan: " + image.id())   
     # the registry in Registry_List contain 'True', it means the registry != "nexus3.o-ran-sc.org:10002"
     for i in registry_List:
         if "nexus3.o-ran-sc.org:10002" not in i:
@@ -43,26 +42,20 @@ def registry_check(image):
             decision.append(False)
 
 
-
 @cli.resultcallback()
 def callback(result, format ):
-    #InValid = False
     if format == "stdout":
         spend_time = timep.time() - start
         print("# ================================================================================================= #")
-        tools.tab_print(" >> \033[48;5;234m\033[38;5;202mScan Image Total:\033[0;0m " + str(len(registry_List)))
-        tools.tab_print(" >> \033[48;5;234m\033[38;5;202mSpend Time:\033[0;0m " + spend_time.__str__() + "s")
+        tools.tab_print(" >> \033[48;5;234m\033[38;5;202mScan Image Total:\033[0;0m " + str(len(registry_List)),expandNum=128)
+        tools.tab_print(" >> \033[48;5;234m\033[38;5;202mSpend Time:\033[0;0m " + spend_time.__str__() + "s",expandNum=128)
         for r in range(0,len(decision)):
             if decision[r] == True:
                 print("+---------------------------------------------------------------------------------------------------+")
-                tools.tab_print("RegistryName: " + str(registry_List[r]) )
-                tools.tab_print("Descriptions: " + "the image registry of this image is invalid")
-                #InValid = True
-        #if InValid != True:
-            #print("+---------------------------------------------------------------------------------------------------+")
+                tools.tab_print("RegistryName: " + str(registry_List[r]),expandNum=90)
+                tools.tab_print("Descriptions: " + "the image registry of this image is invalid",expandNum=90)
             else:
-                tools.tab_print("\033[48;5;234m\033[38;5;45mResult: the image registry of this image is valid!\033[0;0m")
-
+                tools.tab_print("\033[48;5;234m\033[38;5;45mResult: the image registry of this image is valid!\033[0;0m",expandNum=90)
         print("+---------------------------------------------------------------------------------------------------+")
         print("# ================================================================================================= #")
         pass
@@ -72,6 +65,8 @@ def callback(result, format ):
 
 if __name__ == '__main__':
     cli()
+
+
 
 
 ###  "Functionality" ###
