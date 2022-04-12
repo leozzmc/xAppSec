@@ -11,6 +11,7 @@ registry_List = []
 decision = []
 
 
+
 # The registry whitelist is only "nexus3.o-ran-sc.org:10002" for now.
 while_List = ["nexus3.o-ran-sc.org:10002"]
 
