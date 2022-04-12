@@ -29,7 +29,7 @@ def registry_check(image):
     global registry_List
     global decision
     image_ids.append(image.id())
-    registry_List.append(image.repos())
+    registry_List.append(image.reporefs()[0])
     if len(image.reporefs()) > 0:
         log.info("start scan: " + image.reporefs()[0])
     else:
