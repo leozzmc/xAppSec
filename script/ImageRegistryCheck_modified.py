@@ -6,6 +6,7 @@ from lib import tools
 from veinmind import *
 
 start = 0
+image_ids = []
 registry_List = []
 decision = []
 
@@ -20,27 +21,14 @@ def cli(format):
     start = timep.time()
     pass
 
-# @cli.command()
-# def registry_check(config_file):
-#     """check the registry of image within xApp descriptor files"""
-#     with open(config_file,"r") as configfile:
-#         data = json.load(configfile)
-
-#     for i in range(0, len(data['containers']) ):
-#         Registry_List.append(data['containers'][i]['image']['registry'])
-#         #print(Registry_List[i])
-#     configfile.close()
-
-#     for i in Registry_List:
-#         if i != "nexus3.o-ran-sc.org:10002":
-#             print (f"\n❎ the image registry: \"{i}\" of xApp is invalid!")
-
 @cli.image_command()
 def registry_check(image):
     """check the registry of image within xApp descriptor files"""
+    global image_ids
     global registry_List
     global decision
-    registry_List.append(image.id())
+    image_ids.append(image.id())
+    registry_List.append(image.repos())
     if len(image.reporefs()) > 0:
         log.info("start scan: " + image.reporefs()[0])
     else:
@@ -48,7 +36,7 @@ def registry_check(image):
     
     # the registry in Registry_List contain 'True', it means the registry != "nexus3.o-ran-sc.org:10002"
     for i in registry_List:
-        if i != "nexus3.o-ran-sc.org:10002":
+        if "nexus3.o-ran-sc.org:10002" not in i:
             decision.append(True)
         else:
             decision.append(False)
@@ -56,21 +44,22 @@ def registry_check(image):
 
 @cli.resultcallback()
 def callback(result, format ):
-    InValid = False
+    #InValid = False
     if format == "stdout":
         spend_time = timep.time() - start
         print("# ================================================================================================= #")
         tools.tab_print(" >> \033[48;5;234m\033[38;5;202mScan Image Total:\033[0;0m " + str(len(registry_List)))
         tools.tab_print(" >> \033[48;5;234m\033[38;5;202mSpend Time:\033[0;0m " + spend_time.__str__() + "s")
         for r in range(0,len(decision)):
-            if decision[r] == 'True':
+            if decision[r] == True:
                 print("+---------------------------------------------------------------------------------------------------+")
-                tools.tab_print("ImageName: " + registry_List[r] )
+                tools.tab_print("RegistryName: " + str(registry_List[r]) )
                 tools.tab_print("Descriptions: " + "the image registry of this image is invalid")
-                InValid = True
-        if InValid != True:
-            print("+---------------------------------------------------------------------------------------------------+")
-            tools.tab_print("\033[48;5;234m\033[38;5;45mResult: the image registry of all xApp images are valid!\033[0;0m")
+                #InValid = True
+        #if InValid != True:
+            #print("+---------------------------------------------------------------------------------------------------+")
+            else:
+                tools.tab_print("\033[48;5;234m\033[38;5;45mResult: the image registry of this image is valid!\033[0;0m")
         print("+---------------------------------------------------------------------------------------------------+")
         print("# ================================================================================================= #")
         pass
@@ -81,9 +70,7 @@ def callback(result, format ):
 if __name__ == '__main__':
     cli()
 
-
-#####  Should Write to Analysis Result File ! ##########
-#                                                      #
-#                                                      #
-#                                                      #
-########################################################
+"""
+It Should eventually write to a analysis report file.
+It cloud be JSON format.
+"""
