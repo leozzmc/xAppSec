@@ -146,3 +146,9 @@ def callback(result, output):
 
 if __name__ == '__main__':
     cli()
+
+"""
+Reference:
+
+[1]https://blog.tienyulin.com/open-container-initiative-oci/
+"""
