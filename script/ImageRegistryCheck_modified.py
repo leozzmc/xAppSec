@@ -50,12 +50,12 @@ def callback(result, format ):
         tools.tab_print(" >> \033[48;5;234m\033[38;5;202mScan Image Total:\033[0;0m " + str(len(registry_List)),expandNum=128)
         tools.tab_print(" >> \033[48;5;234m\033[38;5;202mSpend Time:\033[0;0m " + spend_time.__str__() + "s",expandNum=128)
         for r in range(0,len(decision)):
+            tools.tab_print("RegistryName: " + str(registry_List[r]),expandNum=100)
             if decision[r] == True:
-                print("+---------------------------------------------------------------------------------------------------+")
-                tools.tab_print("RegistryName: " + str(registry_List[r]),expandNum=100)
+                print("+---------------------------------------------------------------------------------------------------+")   
                 tools.tab_print("Descriptions: " + "the image registry of this image is invalid",expandNum=100)
             else:
-                tools.tab_print("\033[48;5;234m\033[38;5;45mResult: the image registry of this image is valid!\033[0;0m",expandNum=90)
+                tools.tab_print("\033[48;5;234m\033[38;5;45mResult: the image registry of this image is valid!\033[0;0m",expandNum=100)
         print("+---------------------------------------------------------------------------------------------------+")
         print("# ================================================================================================= #")
         pass
