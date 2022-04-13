@@ -74,5 +74,5 @@ if __name__ == '__main__':
 #🔹 Input specific registry name or scan through all image then comapre the registry name.
 
 ###  "Integration" ###
-#🔹 The input shouldbe the image name
+#✅ The input shouldbe the image name  
 #🔹 The xAppSec.sh can extract the image registry with the xApp descriptor file.
