@@ -53,9 +53,9 @@ def callback(result, format ):
             tools.tab_print("RegistryName: " + str(registry_List[r]),expandNum=100)
             print("+---------------------------------------------------------------------------------------------------+") 
             if decision[r] == True:
-                tools.tab_print("Descriptions: " + "the image registry of this image is \033[2;31;197m INVALID \033[0;0m",expandNum=115)
+                tools.tab_print("Descriptions: " + "the image registry of this image is \033[48;5;197m INVALID \033[0;0m",expandNum=117)
             else:
-                tools.tab_print("Descriptions: " + "the image registry of this image is \033[2;31;46m VALID \033[0;0m",expandNum=115)
+                tools.tab_print("Descriptions: " + "the image registry of this image is \033[48;5;46m VALID \033[0;0m",expandNum=116)
         print("+---------------------------------------------------------------------------------------------------+")
         print("# ================================================================================================= #")
         pass
