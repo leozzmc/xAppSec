@@ -1,8 +1,7 @@
 # xAppSec 
-
-![8213365_data_storage_database_graph_business_icon (1)](https://user-images.githubusercontent.com/30616512/161488746-24641b22-5b2a-4ed0-a984-075b5817ee17.png)
-
-
+<div align="left">
+<img src=https://user-images.githubusercontent.com/30616512/163117059-1aec6465-81c5-4946-97be-d76b365a79d2.png  width="20%" height="20%"  />
+</div>
 
 Building the command tool to perform the security analysis to xApp in both static and dynamic ways.
 
