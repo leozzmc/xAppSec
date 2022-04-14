@@ -1,1 +1,1 @@
-__all__ = ['scan', 'register','report','crontab']
+__all__ = ['imagehistory_modified','ImageRegistryCheck_modified','Backdoorscan_modified', 'register','report','crontab']
