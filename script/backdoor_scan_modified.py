@@ -26,7 +26,6 @@ plugin_list = [crontabObj,bashrcObj,serviceObj,sshdObj,tcpObj]
 def cli(format, output):
     global start
     start = timep.time()
-    pass
 
 
 @cli.image_command()
