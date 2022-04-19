@@ -15,8 +15,12 @@ echo "Container Numbers: $CONTAINER_NUM"
 
 
 ## Step 1 -  docker inspcet <container_name>  
+
+
 ### 1.1   Get  "WorkingDir"
+## docker inspect --format={{.Config.WorkingDir}} $CONTAINER_NAME
 ### 1.2   Get "CMD" 
+## docker inspect --format={{.Config.Cmd}} $CONTAINER_NAME     ## It can retrive the command to be executed in container.
 ### 1.3.  Judge the source code is .c, .py, .go or bash file
 
 ## Step 2 -  docker cp <container_name>:</path/to/the/file> </local/system/path>
