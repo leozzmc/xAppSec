@@ -18,7 +18,18 @@ done
 echo "📑 Comparing with whitelist ..."
 
 #python3 /mnt/c/Users/Kevin/xAppSecProject/xAppSec/script/ImageRegistryCheck.py $TEST_CONFIG_JSON
-/mnt/c/Users/Kevin/xAppSecProject/xAppSec/script/ImageRegistryCheck_modified.py ##registry_check $TEST_CONFIG_JSON
+python3 /mnt/c/Users/Kevin/xAppSecProject/xAppSec/script/ImageRegistryCheck_modified.py ##registry_check $TEST_CONFIG_JSON
 
+# ### Get Container Name
+
+# declare -a CONTAINER_NAME=()
+
+# INDEX=0
+# while [ $INDEX -lt  $CONTAINER_NUM ]
+# do
+# 	CONTAINER_NAME+=($(cat $TEST_CONFIG_JSON | jq -c ".containers[$INDEX].name"))
+# 	echo "[$INDEX] | name: ${CONTAINER_NAME[$INDEX]}"
+# 	(( INDEX++ ))
+# done
 
 
