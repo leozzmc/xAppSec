@@ -20,7 +20,6 @@ while_List = ["nexus3.o-ran-sc.org:10002"]
 def cli(format):
     global start
     start = timep.time()
-    pass
 
 @cli.image_command()
 def registry_check(image):

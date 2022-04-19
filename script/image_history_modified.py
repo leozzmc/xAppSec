@@ -22,7 +22,6 @@ def load_rules():
 @command.option("--output", default="stdout", help="output format e.g. stdout/json")
 def cli(output):
     load_rules()
-    pass
 
 
 @cli.image_command()
