@@ -8,7 +8,9 @@ echo "Container Numbers: $CONTAINER_NUM"
 
 ## Step 0 - Get the container name
 
-## kubectl get pod <ricxapp_name> -n ricxapp  -o jsonpath='{.status.containerStatuses[0].containerID}'
+## CONTAINER_ID=kubectl get pod <ricxapp_name> -n ricxapp  -o jsonpath='{.status.containerStatuses[0].containerID}'
+## CONTAINER_NAME=${CONTAINER_ID##docker://}
+## echo $CONTAINER_NAME
 ## ( [0] means it is the first container in the pod )
 
 
