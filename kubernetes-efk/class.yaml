@@ -1,0 +1,6 @@
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+    name: es-block-storage
+provisioner: cluster.local/nfs-release-1-nfs-server-provisioner
+# BY viewing the output field 'provisioner' by entering 'kubectl describe storageclass nfs'
