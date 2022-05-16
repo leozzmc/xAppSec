@@ -41,9 +41,6 @@ COPY entrypoint.sh /fluentd/entrypoint.sh
 
 # Environment variables
 ENV FLUENTD_OPT=""
-#ENV FLUENTD_CONF="output.conf"
 ENV FLUENTD_CONF="output.conf"
 
-
-# Overwrite ENTRYPOINT to run fluentd as root for /var/log / /var/lib
 ENTRYPOINT ["tini", "--", "/fluentd/entrypoint.sh"]
