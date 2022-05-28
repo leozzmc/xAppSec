@@ -10,10 +10,12 @@ sudo apt-get install -y libveinmind-dev
 echo ">>> Downloading Dependencies...."
 sudo apt-get install -y python3-pip 
 pip3 install -r  ../Image_Security_Module/requirements.txt
+sudo apt-get install nfs-common
 #  Build fluentd image
 echo ">>> Building Fluentd Docker Image...."
 cd ~/xAppSec/Config/Fluentd-DS_Config
 docker build -t myfluentd:latest . --no-cache
+sudo chmod +x ~/xAppSec/Config/Fluentd-DS_Config/entrypoint.sh
 #  Install NFS Server (if needed)
 #  Create Storage Classes
 echo ">>> Creating Storage Classes...."

@@ -31,23 +31,10 @@ RUN buildDeps="sudo make gcc g++ libc-dev libffi-dev" \
     && rm -rf /tmp/* /var/tmp/* /usr/lib/ruby/gems/*/cache/*.gem
 
 # Copy configuration files
-#COPY ./conf/fluent.conf /fluentd/etc/
-#COPY ./conf/systemd.conf /fluentd/etc/
-#COPY ./conf/kubernetes.conf /fluentd/etc/
-#COPY ./conf/prometheus.conf /fluentd/etc/
-#COPY ./conf/tail_container_parse.conf /fluentd/etc/
-#COPY ./conf/kubernetes/*.conf /fluentd/etc/kubernetes/
-
-#COPY ./conf/system.conf /fluentd/etc/
-#COPY ./conf/containers.input.conf /fluentd/etc/
-#COPY ./conf/forward.input.conf/ /fluentd/etc/
-#COPY ./conf/output.conf/ /fluentd/etc/
-
-
-COPY ./conf/test.source.conf /fluentd/etc/
-COPY ./conf/test.filter.conf /fluentd/etc/
+COPY ./conf/system.conf /fluentd/etc/
+COPY ./conf/containers.input.conf /fluentd/etc/
 COPY ./conf/forward.input.conf/ /fluentd/etc/
-COPY ./conf/test.output.conf/ /fluentd/etc/
+COPY ./conf/output.conf/ /fluentd/etc/
 RUN touch /fluentd/etc/disable.conf
 
 # Copy plugins
@@ -57,7 +44,7 @@ COPY entrypoint.sh /fluentd/entrypoint.sh
 # Environment variables
 ENV FLUENTD_OPT=""
 #ENV FLUENTD_CONF="output.conf"
-ENV FLUENTD_CONF="test.output.conf"
+ENV FLUENTD_CONF="output.conf"
 
 
 # Overwrite ENTRYPOINT to run fluentd as root for /var/log / /var/lib
