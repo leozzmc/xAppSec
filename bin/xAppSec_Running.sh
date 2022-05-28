@@ -5,10 +5,23 @@
 
 
 #  Get the xApp descriptor file paths
+read -p "Please provide the path to your xApp descriptor configuration file: " CONFIG_JSON
+read -p "Please provide the path to your xApp descriptor schema file: " SCHEMA_JSON
+echo  -e "\nxApp Descriptor Config.json Path:" ${CONFIG_JSON} 
+echo  -e "xApp Descriptor Schema.json Path:" ${SCHEMA_JSON}
 
 #  Install dms_cli(xapp_onboarder)
+sleep 2
+cd ~
+git clone "https://gerrit.o-ran-sc.org/r/ric-plt/appmgr"
+cd appmgr/xapp_orchestrater/dev/xapp_onboarder
+pip3 install ./
+sudo chmod 755 /usr/local/bin/dms_cli
 
 #  Onboard the xApp
+dms_cli onboard $CONFIG_JSON $SCHEMA_JSON
+sleep 2
+curl http://0.0.0.0:8080/api/charts | jq .
 
 #  ImageRegistryCheck.py
 

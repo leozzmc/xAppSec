@@ -8,7 +8,7 @@ sudo apt-get update
 sudo apt-get install -y libveinmind-dev
 #  Install Dependencies
 echo ">>> Downloading Dependencies...."
-sudo apt-get install -y python3-pip 
+sudo apt-get install -y python3-pip jq
 pip3 install -r  ../Image_Security_Module/requirements.txt
 sudo apt-get install nfs-common
 #  Build fluentd image
