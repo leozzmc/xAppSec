@@ -15,7 +15,6 @@ sudo apt-get install nfs-common
 echo ">>> Building Fluentd Docker Image...."
 cd ~/xAppSec/Config/Fluentd-DS_Config
 docker build -t myfluentd:latest . --no-cache
-sudo chmod +x ~/xAppSec/Config/Fluentd-DS_Config/entrypoint.sh
 #  Install NFS Server (if needed)
 #  Create Storage Classes
 echo ">>> Creating Storage Classes...."
