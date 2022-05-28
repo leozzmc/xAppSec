@@ -21,7 +21,7 @@ sudo chmod 755 /usr/local/bin/dms_cli
 #  Onboard the xApp
 dms_cli onboard $CONFIG_JSON $SCHEMA_JSON
 sleep 2
-curl http://0.0.0.0:8080/api/charts | jq .
+curl -X GET http://localhost:8080/api/charts | jq .
 
 #  ImageRegistryCheck.py
 

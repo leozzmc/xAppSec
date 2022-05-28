@@ -40,6 +40,7 @@ kubectl create -f fluentd-rb.yaml
 kubectl create -f fluentd-ds.yaml
 #  Run Local Helm Server
 echo ">>> Running Local Helm Server"
+export CHART_REPO_URL=http://0.0.0.0:8080
 docker run --rm -u 0 -it -p 8080:8080 -e DEBUG=1 -e STORAGE=local -e STORAGE_LOCAL_ROOTDIR=/charts -v $(pwd)/charts:/charts chartmuseum/chartmuseum:latest 
 
 
