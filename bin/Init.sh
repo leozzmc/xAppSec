@@ -5,14 +5,14 @@
 echo ">>> Downloading VeinMind SDK...."
 echo 'deb [trusted=yes] https://download.veinmind.tech/libveinmind/apt/ ./' | sudo tee /etc/apt/sources.list.d/libveinmind.list
 sudo apt-get update
-sudo apt-get install libveinmind-dev
+sudo apt-get install -y libveinmind-dev
 #  Install Dependencies
 echo ">>> Downloading Dependencies...."
-sudo apt-get install python3-pip 
-pip3 -r  ../Image_Security_Module/requirements.txt
+sudo apt-get install -y python3-pip 
+pip3 install -r  ../Image_Security_Module/requirements.txt
 #  Build fluentd image
 echo ">>> Building Fluentd Docker Image...."
-cd ~/xAppSec/Fluentd-DS_Config
+cd ~/xAppSec/Config/Fluentd-DS_Config
 docker build -t myfluentd:latest . --no-cache
 #  Install NFS Server (if needed)
 #  Create Storage Classes
@@ -23,10 +23,10 @@ kubectl create -f class.yaml
 echo ">>> Creating Elasticsearch Service and StatefulSet...."
 cd ~/xAppSec/EFK_Deployer/elasticsearch
 kubectl create -f es-svc.yaml
-kubectl create -f es-sts-yaml
+kubectl create -f es-sts.yaml
 #  Create Kibana Service and Deployment
 echo ">>> Creating Kibana Service and Deployment...."
-cd ~/xAppSec/EFK_Deployer/Kibana
+cd ~/xAppSec/EFK_Deployer/kibana
 kubectl create -f kibana-svc.yaml
 kubectl create -f kibana-deployment.yaml
 #  Create Fluentd Service Account、Fluentd ClusterRole、Fluentd ClusterRoleBinding、Fluentd DaemonSet
