@@ -36,10 +36,11 @@ COPY ./conf/containers.input.conf /fluentd/etc/
 COPY ./conf/forward.input.conf/ /fluentd/etc/
 COPY ./conf/output.conf/ /fluentd/etc/
 RUN touch /fluentd/etc/disable.conf
-
+ 
 # Copy plugins
 COPY plugins /fluentd/plugins/
 COPY entrypoint.sh /fluentd/entrypoint.sh
+RUN chmod +x /fluentd/entrypoint.sh
 
 # Environment variables
 ENV FLUENTD_OPT=""
