@@ -12,6 +12,13 @@ echo ">>> Downloading Dependencies...."
 sudo apt-get install -y python3-pip jq
 pip3 install -r  ../Image_Security_Module/requirements.txt
 sudo apt-get install nfs-common
+#  Install dms_cli(xapp_onboarder)
+sleep 2
+cd ~
+git clone "https://gerrit.o-ran-sc.org/r/ric-plt/appmgr"
+cd appmgr/xapp_orchestrater/dev/xapp_onboarder
+pip3 install ./
+sudo chmod 755 /usr/local/bin/dms_cli
 #  Build fluentd image
 echo ">>> Building Fluentd Docker Image...."
 cd ~/xAppSec/Config/Fluentd-DS_Config
