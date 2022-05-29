@@ -17,7 +17,17 @@ curl -X GET http://localhost:8080/api/charts | jq .
 
 #  Get ImageName
 echo "+-----------------------------------------------+"
-XAPP_NAME=$(cat ${CONFIG_JSON} | jq -c '.xapp_name')
+CONTAINER_NUM=$(cat $CONFIG_JSON | jq -c ".containers" | jq length)
+declare -a REGISTRY=()
+
+# Store the container registrys to array
+INDEX=0
+while [ $INDEX -lt  $CONTAINER_NUM ]
+do
+	REGISTRY+=($(cat $CONFIG_JSON | jq -c ".containers[$INDEX].image.registry"))
+	echo "[$INDEX] | Value: ${REGISTRY[$INDEX]}"
+	(( INDEX++ ))
+done
 echo "[ XAPP_NAME ] : $XAPP_NAME"
 
 #  ImageRegistryCheck.py
