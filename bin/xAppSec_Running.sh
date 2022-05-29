@@ -16,6 +16,9 @@ sleep 2
 curl -X GET http://localhost:8080/api/charts | jq .
 
 #  Get ImageName
+echo "+-----------------------------------------------+"
+XAPP_NAME=$(cat ${CONFIG_JSON} | jq -c '.xapp_name')
+echo "[ XAPP_NAME ] : $XAPP_NAME"
 
 #  ImageRegistryCheck.py
 # chmod +x ~/xAppSec/Image_Security_Module/ImageRegistryCheck.py
