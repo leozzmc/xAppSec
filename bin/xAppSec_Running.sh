@@ -23,7 +23,11 @@ dms_cli onboard $CONFIG_JSON $SCHEMA_JSON
 sleep 2
 curl -X GET http://localhost:8080/api/charts | jq .
 
+#  Get ImageName
+
 #  ImageRegistryCheck.py
+# chmod +x ~/xAppSec/Image_Security_Module/ImageRegistryCheck.py
+# ../Image_Security_Module/ImageRegistryCheck.py $IMAGE_NAME
 
 #  Backdoor_Scan.py
 
