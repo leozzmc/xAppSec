@@ -22,19 +22,25 @@ CONTAINER_NUM=$(cat  ${CONFIG_JSON}  | jq -c ".containers" | jq length)
 INDEX=0
 while [ $INDEX -lt  $CONTAINER_NUM ]
 do
-    NAME+=$(cat  ${CONFIG_JSON}  | jq -c ".containers[$INDEX].image.registry"| tr -d '"')
-    NAME+=$(cat  ${CONFIG_JSON}  | jq -c ".containers[$INDEX].image.name"| tr -d '"')
+    REGISTRY=$(cat  ${CONFIG_JSON}  | jq -c ".containers[$INDEX].image.registry"| tr -d '"')
+    NAME=$(cat  ${CONFIG_JSON}  | jq -c ".containers[$INDEX].image.name"| tr -d '"')
     TAG=$(cat  ${CONFIG_JSON}  | jq -c ".containers[$INDEX].image.tag" | tr -d '"')
-	docker pull "$NAME:$TAG"
+	echo $REGISTRY
+	echo $NAME
+	echo $TAG
+	docker pull "$REGISTRY/$NAME:$TAG"
     (( INDEX++ ))
 done
 
 
 #  ImageRegistryCheck.py
 chmod +x ~/xAppSec/Image_Security_Module/ImageRegistryCheck.py
-../Image_Security_Module/ImageRegistryCheck.py registry_check $NAME
+../Image_Security_Module/ImageRegistryCheck.py registry-check $NAME
 
 #  Backdoor_Scan.py
+chmod +x ~/xAppSec/Image_Security_Module/backdoor_scan.py
+../Image_Security_Module/backdoor_scan.py xApp_scan_images $NAME
+
 
 #  ImageHistory_Scan.py
 
