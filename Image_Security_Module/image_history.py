@@ -139,7 +139,7 @@ def callback(result):
                     tools.tab_print("History: " + detail.history_detail.content, expandNum=100)
         print("+---------------------------------------------------------------------------------------------------+")
     else:
-        tools.tab_print("Unsafe Image List: ", expandNum=128)
+        tools.tab_print(">> \033[48;5;234m\033[38;5;202mUnsafe Image List:\033[0;0m " + "0", expandNum=128)
         print("+---------------------------------------------------------------------------------------------------+")
 
 
