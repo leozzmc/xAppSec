@@ -27,10 +27,11 @@ do
     REGISTRY+=$(cat config.json | jq -c ".containers[$INDEX].image.name"| tr -d '"')
     REGISTRY+=$(cat config.json | jq -c ".containers[$INDEX].image.tag" | tr -d '"')
     IMAGE_SET+=($REGISTRY)
+	docker pull ${IMAGE_SET[$INDEX]}
     (( INDEX++ ))
 done
 
-docker pull $IMAGE_SET
+
 
 
 #  ImageRegistryCheck.py
