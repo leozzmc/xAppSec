@@ -41,9 +41,10 @@ chmod +x ~/xAppSec/Image_Security_Module/ImageRegistryCheck.py
 chmod +x ~/xAppSec/Image_Security_Module/backdoor_scan.py
 ../Image_Security_Module/backdoor_scan.py xapp-scan-images $NAME
 
-
 #  ImageHistory_Scan.py
-
+cd ~/xAppSec/Image_Security_Module/
+chmod +x image_history.py
+../Image_Security_Module/image_history.py xapp-scan-images $NAME
 #  Ask if want to install the xApp
 
 #  Install the xApp (If yes)

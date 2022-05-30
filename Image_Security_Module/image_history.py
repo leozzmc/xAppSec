@@ -19,8 +19,7 @@ def load_rules():
 
 
 @command.group()
-@command.option("--output", default="stdout", help="output format e.g. stdout/json")
-def cli(output):
+def cli():
     load_rules()
 
 
@@ -122,25 +121,27 @@ def xapp_scan_images(image):
 
 
 @cli.resultcallback()
-def callback(result, output):
-    if output == "stdout" and len(report_list) > 0:
-        print("# ================================================================================================= #")
-        tools.tab_print("Scan Image Total: " + str(len(report_list)))
-        tools.tab_print("Unsafe Image List: ")
+def callback(result):
+    
+    print("# ================================================================================================= #")
+    tools.tab_print(">> \033[48;5;234m\033[38;5;202mScan Image Total:\033[0;0m " + str(len(report_list)), expandNum=128)
+    if len(report_list) > 0:    
+        tools.tab_print(">> \033[48;5;234m\033[38;5;202mUnsafe Image List:\033[0;0m ", expandNum=128)
         for r in report_list:
             if len(r.alert_details) == 0:
                 continue
             print(
                 "+---------------------------------------------------------------------------------------------------+")
-            tools.tab_print("ImageName: " + r.id)
-            tools.tab_print("Abnormal History Total: " + str(len(r.alert_details)))
+            tools.tab_print("ImageName: " + r.id, expandNum=100)
+            tools.tab_print("Abnormal History Total: " + str(len(r.alert_details)), expandNum=100)
             for detail in r.alert_details:
                 if detail.history_detail:
-                    tools.tab_print("History: " + detail.history_detail.content)
+                    tools.tab_print("History: " + detail.history_detail.content, expandNum=100)
         print("+---------------------------------------------------------------------------------------------------+")
-    elif output == "json":
-        with open("output.json", mode="w") as f:
-            f.write(jsonpickle.dumps(report_list))
+    else:
+        tools.tab_print("Unsafe Image List: ", expandNum=128)
+        print("+---------------------------------------------------------------------------------------------------+")
+
 
 
 if __name__ == '__main__':
