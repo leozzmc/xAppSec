@@ -39,7 +39,7 @@ chmod +x ~/xAppSec/Image_Security_Module/ImageRegistryCheck.py
 
 #  Backdoor_Scan.py
 chmod +x ~/xAppSec/Image_Security_Module/backdoor_scan.py
-../Image_Security_Module/backdoor_scan.py xApp_scan_images $NAME
+../Image_Security_Module/backdoor_scan.py xapp-scan-images $NAME
 
 
 #  ImageHistory_Scan.py
