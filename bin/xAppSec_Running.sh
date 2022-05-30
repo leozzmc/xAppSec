@@ -18,16 +18,14 @@ curl -X GET http://localhost:8080/api/charts | jq .
 #  Get ImageName
 echo "+-----------------------------------------------+"
 CONTAINER_NUM=$(cat  ${CONFIG_JSON}  | jq -c ".containers" | jq length)
-declare -a IMAGE_SET=()
 
 INDEX=0
 while [ $INDEX -lt  $CONTAINER_NUM ]
 do
-    REGISTRY+=$(cat  ${CONFIG_JSON}  | jq -c ".containers[$INDEX].image.registry"| tr -d '"')
-    REGISTRY+=$(cat  ${CONFIG_JSON}  | jq -c ".containers[$INDEX].image.name"| tr -d '"')
-    REGISTRY+=$(cat  ${CONFIG_JSON}  | jq -c ".containers[$INDEX].image.tag" | tr -d '"')
-    IMAGE_SET+=($REGISTRY)
-	docker pull ${IMAGE_SET[$INDEX]}
+    REGISTRY=$(cat  ${CONFIG_JSON}  | jq -c ".containers[$INDEX].image.registry"| tr -d '"')
+    NAME=$(cat  ${CONFIG_JSON}  | jq -c ".containers[$INDEX].image.name"| tr -d '"')
+    TAG=$(cat  ${CONFIG_JSON}  | jq -c ".containers[$INDEX].image.tag" | tr -d '"')
+	docker pull "$REGISTRY/$NAME:$TAG"
     (( INDEX++ ))
 done
 
