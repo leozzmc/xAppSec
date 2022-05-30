@@ -46,15 +46,21 @@ cd ~/xAppSec/Image_Security_Module/
 chmod +x image_history.py
 ../Image_Security_Module/image_history.py xapp-scan-images $NAME
 #  Ask if want to install the xApp
+
 read -p "If you want to install the xApp.(Y/N) ? " ANSWER
-if [$ANSWER == "Y" || $ANSWER == "y" || $ANSWER == "Yes" || $ANSWER == "YES"] 
+while [$ANSWER != "Y" || $ANSWER != "N"] 
+do 
+   read -p "If you want to install the xApp.(Y/N) ? " ANSWER
+done 
+
+if [$ANSWER == "Y"]
 then
-   echo ">> Installing xApp ... "
-   
+   echo ">> Installing xApp ..."
 else
-   echo "Bye."
-   break 
-fi
+  echo "Bye Bye."
+  exit
+fi 
+
 
 #  Install the xApp (If yes)
 
