@@ -34,26 +34,32 @@ done
 
 
 #  ImageRegistryCheck.py
+echo ">>> Scanning Image Registry ...."
 chmod +x ~/xAppSec/Image_Security_Module/ImageRegistryCheck.py
 ../Image_Security_Module/ImageRegistryCheck.py registry-check $NAME
 
 #  Backdoor_Scan.py
+echo ">>> Scanning If Backdors Within Image...."
 chmod +x ~/xAppSec/Image_Security_Module/backdoor_scan.py
 ../Image_Security_Module/backdoor_scan.py xapp-scan-images $NAME
 
 #  ImageHistory_Scan.py
+echo ">>> Scanning History Instructions in the Image...."
 cd ~/xAppSec/Image_Security_Module/
 chmod +x image_history.py
 ../Image_Security_Module/image_history.py xapp-scan-images $NAME
 #  Ask if want to install the xApp
 
-read -p "If you want to install the xApp.(Y/N) ? " ANSWER
-while [$ANSWER != "Y" || $ANSWER != "N"] 
+kubectl get pods 
+
+echo "+------------------------------+"
+
+until [ "${ANSWER}" == "Y" ] || [ "${ANSWER}" == "N" ] 
 do 
    read -p "If you want to install the xApp.(Y/N) ? " ANSWER
 done 
 
-if [$ANSWER == "Y"]
+if [ "${ANSWER}" == "Y"]
 then
    echo ">> Installing xApp ..."
 else
