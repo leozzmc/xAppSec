@@ -66,9 +66,10 @@ else
   echo "Bye Bye."
   exit
 fi 
-
-
 #  Install the xApp (If yes)
+
+#echo "Installing xApp ...."
+#dms_cli install [xapp_name] [version] ricxapp
 
 #  Check if xApp is in "Running" State
 
