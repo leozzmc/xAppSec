@@ -81,11 +81,12 @@ echo "Now You Can Acces the Kibana Service."
 echo "Kibana URL: http://${URL}:8080/" 
 
 # Create Kibana Index Pattern 
-KIBANA_EP=$(kubectl get ep| grep kibana-np|)
+KIBANA_EP=$(kubectl get ep| grep kibana-np|cut -c 15-35| tr -d " ")
 
- curl -X POST <kibana-host>:<port>/api/saved_objects/index-pattern/index-pattern-id  -H 'kbn-xsrf: true' -H 'Content-Type: application/json' -d '
+curl -X POST $KIBANA_EP/api/saved_objects/index-pattern/index-pattern-id  -H 'kbn-xsrf: true' -H 'Content-Type: application/json' -d '
 {
   "attributes": {
-    "title": "xapp-*"
+    "title": "xapp-*",
+    "timeFieldName": "@timestamp"
   }
 }'
