@@ -76,6 +76,6 @@ sleep 10
 kubectl get pods -n ricxapp
 
 #  Return the Kibana Service Address
-URL=$(kubectl get svc | grep kibana-np | cut -c 29-43)
+URL=$(kubectl get svc | grep kibana-np | cut -c 29-43| tr -d " ")
 echo "Now You Can Acces the Kibana Service."
-echo "Kibana URL: http://${URL}:30000/" 
+echo "Kibana URL: http://${URL}:8080/" 
