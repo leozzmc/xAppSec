@@ -79,3 +79,13 @@ kubectl get pods -n ricxapp
 URL=$(kubectl get svc | grep kibana-np | cut -c 29-43| tr -d " ")
 echo "Now You Can Acces the Kibana Service."
 echo "Kibana URL: http://${URL}:8080/" 
+
+# Create Kibana Index Pattern 
+KIBANA_EP=$(kubectl get ep| grep kibana-np|)
+
+ curl -X POST <kibana-host>:<port>/api/saved_objects/index-pattern/index-pattern-id  -H 'kbn-xsrf: true' -H 'Content-Type: application/json' -d '
+{
+  "attributes": {
+    "title": "xapp-*"
+  }
+}'
