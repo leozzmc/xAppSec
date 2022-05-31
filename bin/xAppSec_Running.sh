@@ -68,9 +68,13 @@ else
 fi 
 #  Install the xApp (If yes)
 
-#echo "Installing xApp ...."
-#dms_cli install [xapp_name] [version] ricxapp
+XAPP_NAME=$(cat  ${CONFIG_JSON}  | jq -c ".xapp_name"| tr -d '"')
+XAPP_VERSION=$(cat  ${CONFIG_JSON}  | jq -c ".version"| tr -d '"')
 
+dms_cli install $XAPP_NAME $XAPP_VERSION ricxapp
+echo "Installing xApp ...."
+sleep 10
 #  Check if xApp is in "Running" State
+kubectl get pods -n ricxapp
 
 #  Return the Kibana Service Address
