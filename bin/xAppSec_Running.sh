@@ -59,10 +59,8 @@ do
    read -p "If you want to install the xApp.(Y/N) ? " ANSWER
 done 
 
-if [ "${ANSWER}" == "Y"]
+if [ "${ANSWER}" != "Y" ]
 then
-   echo ">> Installing xApp ..."
-else
   echo "Bye Bye."
   exit
 fi 
@@ -70,9 +68,9 @@ fi
 
 XAPP_NAME=$(cat  ${CONFIG_JSON}  | jq -c ".xapp_name"| tr -d '"')
 XAPP_VERSION=$(cat  ${CONFIG_JSON}  | jq -c ".version"| tr -d '"')
-
-dms_cli install $XAPP_NAME $XAPP_VERSION ricxapp
 echo "Installing xApp ...."
+dms_cli install $XAPP_NAME $XAPP_VERSION ricxapp
+
 sleep 10
 #  Check if xApp is in "Running" State
 kubectl get pods -n ricxapp
