@@ -71,7 +71,7 @@ XAPP_VERSION=$(cat  ${CONFIG_JSON}  | jq -c ".version"| tr -d '"')
 echo "Installing xApp ...."
 dms_cli install $XAPP_NAME $XAPP_VERSION ricxapp
 
-sleep 10
+sleep 15
 #  Check if xApp is in "Running" State
 kubectl get pods -n ricxapp
 

@@ -1,2 +1,93 @@
-{"attributes":{"description":"query xapp ad's behavior","filters":[{"$state":{"store":"appState"},"meta":{"alias":null,"disabled":false,"index":"a1722070-d67d-11ec-8930-358061b421ee","key":"kubernetes.namespace_name.keyword","negate":false,"params":{"query":"ricxapp"},"type":"phrase"},"query":{"match":{"kubernetes.namespace_name.keyword":{"query":"ricxapp","type":"phrase"}}}},{"$state":{"store":"appState"},"meta":{"alias":null,"disabled":false,"index":"a1722070-d67d-11ec-8930-358061b421ee","key":"kubernetes.pod_name.keyword","negate":false,"params":{"query":"ricxapp-ad-866df4f97-pdzt8"},"type":"phrase"},"query":{"match":{"kubernetes.pod_name.keyword":{"query":"ricxapp-ad-866df4f97-pdzt8","type":"phrase"}}}},{"$state":{"store":"appState"},"meta":{"alias":null,"disabled":false,"index":"a1722070-d67d-11ec-8930-358061b421ee","key":"stream.keyword","negate":true,"params":{"query":"stderr"},"type":"phrase"},"query":{"match":{"stream.keyword":{"query":"stderr","type":"phrase"}}}}],"query":{"language":"kuery","query":""},"title":"xapp_ad_querry"},"id":"xapp_ad_querry","references":[],"type":"query","updated_at":"2022-05-18T08:18:29.012Z","version":"WzE1NywxXQ=="}
-{"exportedCount":1,"missingRefCount":0,"missingReferences":[]}
+{
+    "attributes": {
+        "description": "query xapp ad's behavior",
+        "filters": [
+            {
+                "$state": {
+                    "store": "appState"
+                },
+                "meta": {
+                    "alias": null,
+                    "disabled": false,
+                    "index": "index-pattern-id",
+                    "key": "kubernetes.namespace_name.keyword",
+                    "negate": false,
+                    "params": {
+                        "query": "ricxapp"
+                    },
+                    "type": "phrase"
+                },
+                "query": {
+                    "match": {
+                        "kubernetes.namespace_name.keyword": {
+                            "query": "ricxapp",
+                            "type": "phrase"
+                        }
+                    }
+                }
+            },
+            {
+                "$state": {
+                    "store": "appState"
+                },
+                "meta": {
+                    "alias": null,
+                    "disabled": false,
+                    "index": "index-pattern-id",
+                    "key": "kubernetes.pod_name.keyword",
+                    "negate": false,
+                    "params": {
+                        "query": "ricxapp-ad-*"
+                    },
+                    "type": "phrase"
+                },
+                "query": {
+                    "match": {
+                        "kubernetes.pod_name.keyword": {
+                            "query": "ricxapp-ad-*",
+                            "type": "phrase"
+                        }
+                    }
+                }
+            },
+            {
+                "$state": {
+                    "store": "appState"
+                },
+                "meta": {
+                    "alias": null,
+                    "disabled": false,
+                    "index": "index-pattern-id",
+                    "key": "stream.keyword",
+                    "negate": true,
+                    "params": {
+                        "query": "stderr"
+                    },
+                    "type": "phrase"
+                },
+                "query": {
+                    "match": {
+                        "stream.keyword": {
+                            "query": "stderr",
+                            "type": "phrase"
+                        }
+                    }
+                }
+            }
+        ],
+        "query": {
+            "language": "kuery",
+            "query": ""
+        },
+        "title": "xapp_ad_querry"
+    },
+    "id": "xapp_ad_querry",
+    "references": [],
+    "type": "query",
+    "version": "WzE1NywxXQ=="
+}
+{
+    "exportedCount": 1,
+    "missingRefCount": 0,
+    "missingReferences": []
+}
