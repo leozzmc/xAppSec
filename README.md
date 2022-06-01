@@ -5,16 +5,20 @@
 
 Building the command tool to perform the security analysis to xApp in both static and dynamic ways.
 
+## Funcitonality
 
-## Functionality
+```
+xAppSec Usage:
 
-![CLI Tool](https://user-images.githubusercontent.com/30616512/161489153-635c418e-3c3c-47d9-bd4f-42ed6a79a300.png)
+./xAppSec.sh [OPTIONS]
 
-### 🧪Static Analysis
-To perform security check targeting xApp helm charts, xApp image registry and image vulnerabilities.
-### 🧪Dynamic Analysis
+[OPTIONS]:
+ -i: initialize the envrionment.
+ -n: normal, do xApp image scanning,onboarding and installing the xApp.
+ -k: Setup Kibana Index Pattern.
+ -h: Help.
+```
 
-
-### xAppSec Flow Chart (Not Done.)
-
-![Cli Design](https://user-images.githubusercontent.com/30616512/161490064-fb3f5c4f-018b-4855-9b55-beef7bad8e4b.png)
+- Setup Environment for xApp image scanning, onboarding and deploying.
+- Deploy EFK Stack for monitoring xApp's behavior.
+- Automatically Setup Kibana Index Pattern.
