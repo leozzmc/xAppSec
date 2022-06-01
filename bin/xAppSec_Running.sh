@@ -2,6 +2,38 @@
 # '''This scipt is cmd tool for onboarding xApp'''
 # '''Then do the Image Security Check'''
 
+ARG_NUM=1
+
+ROODIR=$(pwd)
+
+cat ../manual.txt
+
+if [ $# -ne $ARG_NUM ]; then
+   echo "Wrong number of parameters: $#"
+   echo "You shoud only provide $ARG_NUM parameter."
+   exit 1
+fi
+
+if [ $1 != "-i" || $1 != "-n" || $1 != "-k" ];then
+  echo "wrong parameter!"
+  cat ../manual.txt
+  exit 1
+fi 
+
+
+if [ $1 ==  "-i" ]; then
+   chmod +x Init.sh
+   ./Init.sh
+   exit
+elif [ $1 == "-n" ]; then
+   echo "normal mode."
+else
+   echo "To Setup Kibana Index Pattern."
+   chmod +x kibana.sh
+   ./kibana.sh
+   exit
+fi
+
 
 
 #  Get the xApp descriptor file paths
