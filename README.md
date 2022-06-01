@@ -14,7 +14,7 @@ xAppSec Usage:
 
 [OPTIONS]:
  -i: initialize the envrionment.
- -n: normal, do xApp image scanning,onboarding and installing the xApp.
+ -n: normal mode, do xApp image scanning,onboarding and installing the xApp.
  -k: Setup Kibana Index Pattern.
  -h: Help.
 ```
