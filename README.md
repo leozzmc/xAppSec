@@ -63,15 +63,19 @@ Capture xApp's Pod log and present its behavior.
 ```
 ./xAppSec.sh -i
 ```
+After initializing, a helm server is running. and waiting for xApp to onboard.
 
 <img width="520" alt="image" src="https://user-images.githubusercontent.com/30616512/171382418-35697590-0e40-44a5-9c0d-d153daf701eb.png">
-After initializing, a helm server is running. and waiting for xApp to onboard.
+
+
 
 
 
 ```
 ./xAppSec/sh -n
 ```
+
+normal mode, to scan xApp image, Onboard xApp via descriptor
 
 ![image](https://user-images.githubusercontent.com/30616512/171383497-4e4f7a49-30e6-4099-b242-d7e755916500.png)
 
