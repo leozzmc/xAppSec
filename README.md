@@ -18,7 +18,7 @@ xAppSec Usage:
 
 ./xAppSec.sh [OPTIONS]
 
-[OPTIONS]:
+[OPTIONS]:image
  -i: initialize the envrionment.
  -n: normal mode, do xApp image scanning,onboarding and installing the xApp.
  -k: Setup Kibana Index Pattern.
@@ -28,3 +28,20 @@ xAppSec Usage:
 - Setup Environment for xApp image scanning, onboarding and deploying.
 - Deploy EFK Stack for monitoring xApp's behavior.
 - Automatically Setup Kibana Index Pattern.
+
+## Initialization
+The initialization includes  the following steps:
+- Install VeinMind SDK and related dependencies.
+- Clone O-RAN xapp_onboarder repo.
+- Build custom fluentd daemonset dockerfile.
+- Deploy EFK K8S objects.
+- Run helm server locally.
+## Image Scan
+Run the following script for scanning xApp's image.
+- `ImageRegistryCheck.py`
+- `backdoor_scan.py`
+- `image_history.py`
+
+## EFK Monitoring
+Capture xApp's Pod log and present its behavior.
+- Create Index Pattern automatically. 
