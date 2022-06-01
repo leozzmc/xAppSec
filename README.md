@@ -63,6 +63,7 @@ Capture xApp's Pod log and present its behavior.
 ```
 ./xAppSec.sh -i
 ```
+
 <img width="520" alt="image" src="https://user-images.githubusercontent.com/30616512/171382418-35697590-0e40-44a5-9c0d-d153daf701eb.png">
 
 
