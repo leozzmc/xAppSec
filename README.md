@@ -77,6 +77,6 @@ After initializing, a helm server is running. and waiting for xApp to onboard.
 
 <img width="520" alt="image" src="https://user-images.githubusercontent.com/30616512/171383522-4a482a60-72cc-45a9-ac85-dba01a6268a2.png">
 
-![image](https://user-images.githubusercontent.com/30616512/171383698-b41d723f-80e5-4f84-9296-239437edc495.png)
+
 
 
