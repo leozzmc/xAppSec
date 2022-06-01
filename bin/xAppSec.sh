@@ -1,5 +1,5 @@
 #!/bin/bash
-# '''This scipt is cmd tool for onboarding xApp'''
+# '''This script is cmd tool for onboarding xApp'''
 # '''Then do the Image Security Check'''
 
 ARG_NUM=1

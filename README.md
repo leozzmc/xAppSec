@@ -3,7 +3,13 @@
 <img src=https://user-images.githubusercontent.com/30616512/163117059-1aec6465-81c5-4946-97be-d76b365a79d2.png  width="20%" height="20%"  />
 </div>
 
-Building the command tool to perform the security analysis to xApp in both static and dynamic ways.
+A command tool to perform the security check to xApp and set up EFK stack for monitoring xApp's behavior.
+
+## Environment.
+```
+✅ Working well in Near-RT RIC Cluster [E Release]
+✅ Ubuntu 18.04 LTS
+```
 
 ## Funcitonality
 
