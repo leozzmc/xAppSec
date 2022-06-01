@@ -65,6 +65,18 @@ Capture xApp's Pod log and present its behavior.
 ```
 
 <img width="520" alt="image" src="https://user-images.githubusercontent.com/30616512/171382418-35697590-0e40-44a5-9c0d-d153daf701eb.png">
+After initializing, a helm server is running. and waiting for xApp to onboard.
 
+
+
+```
+./xAppSec/sh -n
+```
+
+![image](https://user-images.githubusercontent.com/30616512/171383497-4e4f7a49-30e6-4099-b242-d7e755916500.png)
+
+<img width="520" alt="image" src="https://user-images.githubusercontent.com/30616512/171383522-4a482a60-72cc-45a9-ac85-dba01a6268a2.png">
+
+<img width="520" alt="image" src="https://user-images.githubusercontent.com/30616512/171383548-a40d8611-c073-4fba-9894-359b8309884a.png">
 
 
