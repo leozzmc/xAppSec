@@ -48,22 +48,22 @@ Capture xApp's Pod log and present its behavior.
 
 ## Architecture
 
-<img width="430" alt="image" src="https://user-images.githubusercontent.com/30616512/171382623-91449fd2-f32a-4076-88c6-e7ef3e2ee0f2.png">
+<img width="460" alt="image" src="https://user-images.githubusercontent.com/30616512/171382623-91449fd2-f32a-4076-88c6-e7ef3e2ee0f2.png">
 
 
 ## Process
 #### 程式運作-xApp進駐與鏡像檢查
-<img width="430" alt="image" src="https://user-images.githubusercontent.com/30616512/171382684-833069df-4765-4cf7-8bcc-9146d8b0b731.png">
+<img width="460" alt="image" src="https://user-images.githubusercontent.com/30616512/171382684-833069df-4765-4cf7-8bcc-9146d8b0b731.png">
 
 #### 程式運作-EFK進行日誌處理
-<img width="430" alt="image" src="https://user-images.githubusercontent.com/30616512/171382741-35946276-5c15-4381-8a90-89796e7e87d6.png">
+<img width="460" alt="image" src="https://user-images.githubusercontent.com/30616512/171382741-35946276-5c15-4381-8a90-89796e7e87d6.png">
 
 ## Execution
 
 ```
 ./xAppSec.sh -i
 ```
-<img width="430" alt="image" src="https://user-images.githubusercontent.com/30616512/171382418-35697590-0e40-44a5-9c0d-d153daf701eb.png">
+<img width="460" alt="image" src="https://user-images.githubusercontent.com/30616512/171382418-35697590-0e40-44a5-9c0d-d153daf701eb.png">
 
 
 
