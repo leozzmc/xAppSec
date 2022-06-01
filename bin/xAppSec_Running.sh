@@ -4,18 +4,16 @@
 
 ARG_NUM=1
 
-ROODIR=$(pwd)
 
-cat ../manual.txt
 
 if [ $# -ne $ARG_NUM ]; then
-   echo "Wrong number of parameters: $#"
-   echo "You shoud only provide $ARG_NUM parameter."
+   echo "Wrong number of parameters!"
+   cat ../manual.txt
    exit 1
 fi
 
-if [ $1 != "-i" || $1 != "-n" || $1 != "-k" ];then
-  echo "wrong parameter!"
+if [ $1 != "-i" ] && [ $1 != "-n" ] && [ $1 != "-k" ] && [ $1 != "-h" ];then
+  echo "Wrong parameter!"
   cat ../manual.txt
   exit 1
 fi 
@@ -27,11 +25,14 @@ if [ $1 ==  "-i" ]; then
    exit
 elif [ $1 == "-n" ]; then
    echo "normal mode."
-else
+elif [ $1 == "-k" ];then
    echo "To Setup Kibana Index Pattern."
    chmod +x kibana.sh
    ./kibana.sh
    exit
+else
+  cat ../manual.txt
+  exit  
 fi
 
 
