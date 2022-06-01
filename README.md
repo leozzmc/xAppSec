@@ -45,3 +45,5 @@ Run the following script for scanning xApp's image.
 ## EFK Monitoring
 Capture xApp's Pod log and present its behavior.
 - Create Index Pattern automatically. 
+
+## Process
