@@ -13,4 +13,13 @@ curl -X POST $KIBANA_EP/api/saved_objects/index-pattern/index-pattern-id  -H 'kb
   }
 }'
 
+# Make this index pattern be default setting
+
+curl -X POST $KIBANA_EP/api/saved_objects/config/7.8.0  -H 'kbn-xsrf: true' -H 'Content-Type: application/json' -d '
+{
+  "attributes": {
+    "defaultIndex": "my_default_index_pattern"
+  }
+}'
+
 
