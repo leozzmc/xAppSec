@@ -1,6 +1,6 @@
 xAppSec Usage:
 
-./xAppSec.sh [OPTIONS]
+./xAppSec [OPTIONS]
 
 [OPTIONS]:
  -i: initialize the envrionment.
