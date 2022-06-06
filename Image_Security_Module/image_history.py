@@ -130,7 +130,8 @@ def callback(result):
     print("# ================================================================================================= #")
     
     if len(report_list) > 0:
-        tools.tab_print(">> \033[48;5;234m\033[38;5;202mScan Image Total:\033[0;0m " + str(len(report_list)), expandNum=128)    
+        tools.tab_print(">> \033[48;5;234m\033[38;5;202mScan Image Total:\033[0;0m " + str(len(report_list)), expandNum=128)
+        tools.tab_print(" >> \033[48;5;234m\033[38;5;202mSpend Time:\033[0;0m " + spend_time.__str__() + "s",expandNum=128)   
         tools.tab_print(">> \033[48;5;234m\033[38;5;202mUnsafe Image List:\033[0;0m ", expandNum=128)
         for r in report_list:
             if len(r.alert_details) == 0:
@@ -142,12 +143,11 @@ def callback(result):
             for detail in r.alert_details:
                 if detail.history_detail:
                     tools.tab_print("History: " + detail.history_detail.content, expandNum=100)
-        tools.tab_print(" >> \033[48;5;234m\033[38;5;202mSpend Time:\033[0;0m " + spend_time.__str__() + "s",expandNum=128)
         print("+---------------------------------------------------------------------------------------------------+")
     else:
         tools.tab_print(">> \033[48;5;234m\033[38;5;202mScan Image Total:\033[0;0m " + "1", expandNum=128)
+        tools.tab_print(">> \033[48;5;234m\033[38;5;202mSpend Time:\033[0;0m " + spend_time.__str__() + "s",expandNum=128)
         tools.tab_print(">> \033[48;5;234m\033[38;5;202mUnsafe Image List:\033[0;0m " + "0", expandNum=128)
-        tools.tab_print(" >> \033[48;5;234m\033[38;5;202mSpend Time:\033[0;0m " + spend_time.__str__() + "s",expandNum=128)
         print("+---------------------------------------------------------------------------------------------------+")
 
 
