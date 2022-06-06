@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+from calendar import c
 import click
 import jsonpickle
 import time as timep
@@ -50,6 +51,27 @@ def xApp_scan_images(image):
                                     alert_type=AlertType.Backdoor.value,
                                     alert_details=[detail])
             report(report_event)
+        if i is crontabObj:
+            log.info("Start scanning Crontab backdoors...")
+            for j in crontabObj.cron_list:
+                log.info(f"Scanning backdoors in path {j}")
+        if i is bashrcObj:
+            log.info("Start scanning Bashrc backdoors..")
+            for j in bashrcObj.bashrc_dirs:
+                log.info(f"Scanning backdoors in path {j}")
+        if i is serviceObj:
+            log.info("Start scanning system service related backdoors...")
+            for j in serviceObj.service_dir_list:
+                log.info(f"Scanning backdoors in path {j}")
+        if i is sshdObj:
+            log.info("Start scanning sshd related backdoors...")
+            for j in sshdObj.rootok_list:
+                log.info(f"Check if any sshd symbolic link to process: {j}")
+        if i is tcpObj:
+            log.info("Start scanning tcp wrapper related backdoors...")
+            for j in tcpObj.wrapper_config_file_list:
+                log.info(f"Scanning backdoors in wrapper config file: {j}")
+
 
 @cli.command()
 def test():
