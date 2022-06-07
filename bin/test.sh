@@ -7,7 +7,7 @@ echo "Sending API Request to Kibana service ...."
 echo "Testing Script."
 
 # Add Scripted Field in Kibana
-curl -X POST api/saved_objects/index_pattern/index-pattern-id/runtime_field -H 'kbn-xsrf: true' -H 'Content-Type: application/json' -d '
+curl -X POST $KIBANA_EP/api/saved_objects/index_pattern/index-pattern-id/runtime_field -H 'kbn-xsrf: true' -H 'Content-Type: application/json' -d '
 {
   "name": "xapp-*",
   "TestField": {
