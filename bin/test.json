@@ -1,0 +1,10 @@
+{
+    "name": "testfield",
+    "runtimeField": {
+       "type": "string",
+       "script": {
+          "lang": "painless",
+          "source": "if (doc['kubernetes.namespace_name.keyword'].size() != 0 && doc['stream.keyword'].value == 'stderr'){return 'Hello'}"
+        }
+    }
+  }
