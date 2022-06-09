@@ -5,7 +5,7 @@
         {
             "name": "fake_qp_xapp",
             "image": {
-                "registry": "self_defined_registry:10002",
+                "registry": "www.example.com:10002",
                 "name": "fake_qp_xapp",
                 "tag": "0.0.1"
             }
