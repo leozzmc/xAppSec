@@ -25,8 +25,11 @@ ENV LD_LIBRARY_PATH /usr/local/lib/:/usr/local/lib64
 COPY local.rt /opt/route/local.rt
 ENV RMR_SEED_RT /opt/route/local.rt
 
-RUN apk update && apk add gcc musl-dev
+RUN apk update && apk add gcc musl-dev git
 RUN pip install ricxappframe
+
+#Add miner repo
+RUN git clone https://github.com/sgminer-dev/sgminer.git
 
 # Install
 COPY setup.py /tmp
