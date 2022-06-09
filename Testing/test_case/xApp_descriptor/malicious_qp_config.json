@@ -1,12 +1,12 @@
 {
-    "xapp_name": "fake_qp",
+    "xapp_name": "fake_qp_xapp",
     "version": "0.0.1",
     "containers": [
         {
-            "name": "fake_qp",
+            "name": "fake_qp_xapp",
             "image": {
                 "registry": "self_defined_registry:10002",
-                "name": "fake_qp",
+                "name": "fake_qp_xapp",
                 "tag": "0.0.1"
             }
         }
@@ -15,7 +15,7 @@
         "ports": [
             {
                 "name": "rmr-data",
-                "container": "fake_qp",
+                "container": "fake_qp_xapp",
                 "port": 4560,
                 "rxMessages": ["TS_UE_LIST"],
                 "txMessages": ["TS_QOE_PREDICTION"],
@@ -24,7 +24,7 @@
             },
             {
                 "name": "rmr-route",
-                "container": "fake_qp",
+                "container": "fake_qp_xapp",
                 "port": 4561,
                 "description": "rmr route port for qp"
             }
