@@ -52,10 +52,10 @@ Capture xApp's Pod log and present its behavior.
 
 
 ## Process
-#### 程式運作-xApp進駐與鏡像檢查
+#### xApp Onboarding and Deploying
 <img width="520" alt="image" src="https://user-images.githubusercontent.com/30616512/171382684-833069df-4765-4cf7-8bcc-9146d8b0b731.png">
 
-#### 程式運作-EFK進行日誌處理
+#### 程式運作- Run EFK to process xApp log data
 <img width="520" alt="image" src="https://user-images.githubusercontent.com/30616512/171382741-35946276-5c15-4381-8a90-89796e7e87d6.png">
 
 ## Execution
