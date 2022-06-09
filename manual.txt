@@ -6,5 +6,6 @@ xAppSec Usage:
  -i: initialize the environment.
  -n: norma mode, do xApp image scanning,onboarding and installing the xApp.
  -k: Setup Kibana Index Pattern.
+ -t: build the test case.
  -h: Help.
  
