@@ -45,6 +45,8 @@ kubectl create -f fluentd-sa.yaml
 kubectl create -f fluentd-role.yaml
 kubectl create -f fluentd-rb.yaml
 kubectl create -f fluentd-ds.yaml
+
+
 #  Run Local Helm Server
 sleep 5
 echo ">>> Running Local Helm Server"

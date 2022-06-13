@@ -1,0 +1,42 @@
+{
+    "xapp_name": "fake_ad_xapp",
+    "version": "0.0.1",
+    "containers": [
+        {
+            "name": "fake_ad_xapp",
+            "image": {
+                "registry": "nexus3.o-ran-sc.org:10002",
+                "name": "fake_ad_xapp",
+                "tag": "0.0.1"
+            }
+        }
+    ],
+    "messaging": {
+        "ports": [
+            {
+                "name": "rmr-data",
+                "container": "fake_ad_xapp",
+                "port": 4560,
+                "txMessages": ["TS_ANOMALY_UPDATE"],
+                "rxMessages": ["TS_ANOMALY_ACK"],
+                "policies": [],
+                "description": "rmr receive data port for ad"
+            },
+            {
+                "name": "rmr-route",
+                "container": "fake_ad_xapp",
+                "port": 4561,
+                "description": "rmr route port for ad"
+            }
+        ]
+    },
+    "rmr": {
+        "protPort": "tcp:4560",
+        "maxSize": 2072,
+        "numWorkers": 1,
+        "rxMessages": ["TS_ANOMALY_ACK"],
+        "txMessages": ["TS_ANOMALY_UPDATE"],
+        "policies": []
+    }
+
+}

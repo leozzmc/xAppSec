@@ -10,7 +10,7 @@ if [ $# -ne $ARG_NUM ]; then
    exit 1
 fi
 
-if [ $1 != "-i" ] && [ $1 != "-n" ] && [ $1 != "-k" ] && [ $1 != "-h" ];then
+if [ $1 != "-i" ] && [ $1 != "-n" ] && [ $1 != "-k" ] && [ $1 != "-h" ] && [ $1 != "-t" ];then
   echo "Wrong parameter!"
   cat ../manual.txt
   exit 1
@@ -26,6 +26,12 @@ elif [ $1 == "-k" ];then
    echo "To Setup Kibana Index Pattern."
    chmod +x kibana.sh
    ./kibana.sh
+   exit
+elif [ $1 == "-t" ];then
+   echo "To build the fake xApp test case."
+   echo "It may take some time. :)"
+   chmod +x run_testcase.sh
+   ./run_testcase.sh
    exit
 else
   cat ../manual.txt
