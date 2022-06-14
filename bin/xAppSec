@@ -73,7 +73,7 @@ chmod +x ~/xAppSec/Image_Security_Module/ImageRegistryCheck.py
 ../Image_Security_Module/ImageRegistryCheck.py registry-check $NAME
 
 #  Backdoor_Scan.py
-echo ">>> Scanning If Backdors Within Image...."
+echo ">>> Scanning If Backdoors Within Image...."
 chmod +x ~/xAppSec/Image_Security_Module/backdoor_scan.py
 ../Image_Security_Module/backdoor_scan.py xapp-scan-images $NAME
 
